@@ -22,6 +22,9 @@ test("estimate to quotation, acceptance, deposit invoice and payment, then the d
   let recoveryCodes: string[] = [];
   let quotationId = "";
   let invoiceId = "";
+  let estimateId = "";
+  let clientId = "";
+  let projectId = "";
 
   await test.step("a signed-out visitor is sent to set up the owner account", async () => {
     await page.goto("/");
@@ -112,6 +115,7 @@ test("estimate to quotation, acceptance, deposit invoice and payment, then the d
     await page.locator("#c-code").fill("acme");
     await save(page, "Create client");
     await expect(page).toHaveURL(/\/clients\/[0-9a-f-]{36}$/);
+    clientId = page.url().split("/").pop()!;
 
     await page.goto("/projects/new");
     await settle(page);
@@ -121,6 +125,7 @@ test("estimate to quotation, acceptance, deposit invoice and payment, then the d
     await page.locator("#p-desc").fill("A web app for dispatching drivers and tracking deliveries.");
     await save(page, "Create project");
     await expect(page).toHaveURL(/\/projects\/[0-9a-f-]{36}$/);
+    projectId = page.url().split("/").pop()!;
   });
 
   await test.step("estimate: the PRD worked example prices to exactly R37 069.00", async () => {
@@ -152,6 +157,7 @@ test("estimate to quotation, acceptance, deposit invoice and payment, then the d
     await expect(page.getByTestId("summary-total")).toHaveText("R37 069.00");
     await save(page, "Save draft");
     await expect(page).toHaveURL(/\/estimates\/[0-9a-f-]{36}$/);
+    estimateId = page.url().split("/").pop()!;
     await settle(page);
     await expect(page.getByTestId("summary-total")).toHaveText("R37 069.00");
 
@@ -241,6 +247,64 @@ test("estimate to quotation, acceptance, deposit invoice and payment, then the d
     for (const action of ["status.sent", "status.accepted", "status.issued", "auth.enroll_2fa"]) {
       await expect(page.getByText(action, { exact: true }).first()).toBeVisible();
     }
+  });
+
+  await test.step("on a phone: every page fits the screen, and the burger menu navigates", async () => {
+    await page.setViewportSize({ width: 360, height: 740 });
+    const pages = [
+      "/", "/estimates", `/estimates/${estimateId}`, "/estimates/new", `/estimates/${estimateId}/working`,
+      "/clients", `/clients/${clientId}`, "/clients/new", "/projects", `/projects/${projectId}`, "/projects/new",
+      "/quotations", `/quotations/${quotationId}`, `/quotations/${quotationId}/working`,
+      "/invoices", `/invoices/${invoiceId}`, "/settings", "/audit", "/account",
+    ];
+    const wide: string[] = [];
+    for (const path of pages) {
+      await page.goto(path);
+      await settle(page);
+      const over = await page.evaluate(() => {
+        const vw = document.documentElement.clientWidth;
+        const bad = [...document.querySelectorAll("body *")]
+          .filter((el) => {
+            if (el.getBoundingClientRect().right <= vw + 1) return false;
+            // Wide content that scrolls inside its own box (a table, the tab strip) is fine; only the page itself must not.
+            for (let a = el.parentElement; a && a !== document.body; a = a.parentElement) {
+              if (["auto", "scroll"].includes(getComputedStyle(a).overflowX)) return false;
+            }
+            return true;
+          })
+          .slice(0, 3)
+          .map((el) => `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 50)}`);
+        return { overflow: document.documentElement.scrollWidth > vw + 1, bad };
+      });
+      if (over.overflow) wide.push(`${path} -> ${over.bad.join(" | ")}`);
+      await page.screenshot({ path: `test-results/mobile${path.replace(/[^a-z]+/gi, "_")}.png`, fullPage: true });
+    }
+    expect(wide, "pages wider than the phone screen").toEqual([]);
+
+    // The burger opens the drawer; choosing a link navigates and closes it.
+    await page.goto("/");
+    await settle(page);
+    await expect(page.getByRole("navigation", { name: "Primary" })).toBeHidden();
+    await page.getByRole("button", { name: "Open menu" }).click();
+    await expect(page.getByRole("dialog", { name: "Menu" })).toBeVisible();
+    await page.screenshot({ path: "test-results/mobile-drawer.png" });
+    await page.getByRole("dialog").getByRole("link", { name: "Invoices" }).click();
+    await expect(page).toHaveURL(/\/invoices$/);
+    await expect(page.getByRole("dialog", { name: "Menu" })).toBeHidden();
+    await page.getByRole("button", { name: "Open menu" }).click();
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("dialog", { name: "Menu" })).toBeHidden();
+
+    // The theme button flips the theme and carries an icon, not a word.
+    const toggle = page.getByRole("button", { name: /Switch to (dark|light) theme/ }).first();
+    await expect(toggle.locator("svg").first()).toBeAttached();
+    const before = await page.evaluate(() => document.documentElement.classList.contains("dark"));
+    await toggle.click();
+    expect(await page.evaluate(() => document.documentElement.classList.contains("dark"))).toBe(!before);
+    await page.screenshot({ path: "test-results/mobile-theme-toggled.png" });
+    await toggle.click();
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.screenshot({ path: "test-results/desktop.png" });
   });
 
   await test.step("sign out; this trusted device signs back in with the PIN alone", async () => {

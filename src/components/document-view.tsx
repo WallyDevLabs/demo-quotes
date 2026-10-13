@@ -16,7 +16,7 @@ function Block({ title, body }: { title: string; body: string }) {
 
 function Rows({ heads, rows }: { heads: [string, string, string]; rows: { a: string; b: string; c: string }[] }) {
   return (
-    <table className="mt-2 w-full text-left text-sm">
+    <div className="overflow-x-auto"><table className="mt-2 w-full text-left text-sm">
       <thead>
         <tr className="bg-slate-100 text-[11px] uppercase tracking-wider text-slate-500">
           <th className="px-2 py-1.5 font-bold">{heads[0]}</th>
@@ -33,7 +33,7 @@ function Rows({ heads, rows }: { heads: [string, string, string]; rows: { a: str
           </tr>
         ))}
       </tbody>
-    </table>
+    </table></div>
   );
 }
 

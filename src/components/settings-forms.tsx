@@ -57,7 +57,7 @@ function LogoSection({ logoFileId }: { logoFileId: string | null }) {
           accept="image/png,image/jpeg"
           aria-label="Choose a logo file"
           onChange={(e) => setChosen(e.target.files?.[0] ?? null)}
-          className="text-sm"
+          className="block w-full max-w-full min-w-0 text-sm"
         />
         <Button
           variant="primary"

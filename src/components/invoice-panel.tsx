@@ -196,7 +196,7 @@ function Issued({ inv, today }: { inv: InvoiceDTO; today: string }) {
           <span className="flex-1" />
           <LinkButton href={`/invoices/${inv.id}/pdf`}>Download PDF</LinkButton>
         </div>
-        <dl className="mt-3 grid grid-cols-3 gap-3 text-sm">
+        <dl className="mt-3 grid gap-3 text-sm sm:grid-cols-3">
           {[
             ["Total", fmt(inv.totalCents)],
             ["Paid", fmt(inv.paidCents)],

@@ -4,12 +4,12 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "CodeQuote: Pricing & Invoicing",
     short_name: "CodeQuote",
-    description: "Price projects, send quotations and invoices, and track payments, online or offline.",
+    description: "Price projects, send quotations and invoices, and track payments.",
     id: "/",
     start_url: "/",
     scope: "/",
     display: "standalone",
-    orientation: "portrait",
+    orientation: "any",
     background_color: "#F8FAFC",
     theme_color: "#4F46E5",
     icons: [

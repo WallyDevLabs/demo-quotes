@@ -16,11 +16,12 @@ This is a runbook, not a record: **nothing has been deployed yet.** It needs two
    - `DATABASE_URL`: the connection string from step 1.
    - `AUTH_SECRET`: `openssl rand -base64 32`, different from your local one. Changing it later signs everyone out and breaks stored authenticator secrets.
    - `SETUP_TOKEN`: a long random string. Without it, setup is switched off in production.
-4. **Match the function region to the database region** (Project Settings, Functions), so every request is not crossing continents. **Untested.**
-5. **Deploy**, then open the site over HTTPS. You should land on the setup page. Create your account with the setup token, turn on two-factor, and **save the recovery codes**.
-6. **Remove `SETUP_TOKEN`** from Vercel once your account exists (setup is one-time anyway).
-7. **Switch on backups**: Supabase's paid plans include daily backups (the free plan does not), so on the free plan rely on `npm run backup` run regularly. Then test one restore (below).
-8. **Smoke test on the live site**: sign out and back in (PIN on this device; password and code on a second browser), add your business details and rates, make a throwaway estimate, send a quotation to yourself, download the PDF, then delete nothing you want to keep (sent documents cannot be deleted by design).
+4. **Turn off Vercel Authentication for production** (Project Settings, Deployment Protection, set it to "Only Preview Deployments" or switch it off for Production). While it is on, Vercel answers every request, including `/manifest.webmanifest`, `/sw.js` and the icons, with a redirect to its own sign-in. A phone then cannot read the manifest and will not offer "Install app" or "Add to Home Screen". The app has its own sign-in, so this protection is not needed. Check afterwards: `curl -I https://<your-domain>/manifest.webmanifest` must return `200`, not `302`.
+5. **Match the function region to the database region** (Project Settings, Functions), so every request is not crossing continents. **Untested.**
+6. **Deploy**, then open the site over HTTPS. You should land on the setup page. Create your account with the setup token, turn on two-factor, and **save the recovery codes**.
+7. **Remove `SETUP_TOKEN`** from Vercel once your account exists (setup is one-time anyway).
+8. **Switch on backups**: Supabase's paid plans include daily backups (the free plan does not), so on the free plan rely on `npm run backup` run regularly. Then test one restore (below).
+9. **Smoke test on the live site**: sign out and back in (PIN on this device; password and code on a second browser), add your business details and rates, make a throwaway estimate, send a quotation to yourself, download the PDF, then delete nothing you want to keep (sent documents cannot be deleted by design).
 
 ## Backups: the test that must happen before launch
 The local restore test proved the backup and restore *procedure* and the integrity checks. The same must be proven on the hosted database:

@@ -43,7 +43,7 @@ export function InvoiceDocumentView({ doc }: { doc: InvoiceDocument }) {
         </div>
       </div>
 
-      <table className="mt-6 w-full text-left text-sm">
+      <div className="overflow-x-auto"><table className="mt-6 w-full text-left text-sm">
         <thead>
           <tr className="bg-slate-100 text-[11px] uppercase tracking-wider text-slate-500">
             <th className="px-2 py-1.5 font-bold">Description</th>
@@ -60,7 +60,7 @@ export function InvoiceDocumentView({ doc }: { doc: InvoiceDocument }) {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table></div>
 
       <dl className="ml-auto mt-3 grid w-full max-w-xs grid-cols-[1fr_auto] gap-y-1 text-sm">
         {doc.totals.discount && (

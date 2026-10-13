@@ -20,7 +20,7 @@ export function QuotationInvoicing({ data }: { data: Data }) {
   return (
     <Card>
       <SectionTitle title="Invoicing" hint="One accepted quotation can produce several invoices (a deposit, milestones, a final one), up to its accepted value." />
-      <dl className="grid grid-cols-3 gap-3 text-sm">
+      <dl className="grid gap-3 text-sm sm:grid-cols-3">
         {[
           ["Accepted total", fmt(data.totalCents)],
           ["Invoiced", fmt(data.invoicedCents)],

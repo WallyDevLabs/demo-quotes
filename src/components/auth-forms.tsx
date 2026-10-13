@@ -365,12 +365,13 @@ export function EnrollForm({ qr, secret }: { qr: string; secret: string }) {
   );
 }
 
-export function SignOutButton() {
+export function SignOutButton({ className }: { className?: string }) {
   const [pending, setPending] = useState(false);
   return (
     <Button
       variant="ghost"
       disabled={pending}
+      className={className}
       onClick={() =>
         void (async () => {
           setPending(true);

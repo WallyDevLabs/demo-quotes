@@ -36,7 +36,7 @@ export function Button({
       type="button"
       {...props}
       className={cx(
-        "inline-flex min-h-9 items-center justify-center gap-1.5 rounded px-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex min-h-10 items-center justify-center gap-1.5 rounded px-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 md:min-h-9",
         VARIANTS[variant],
         className,
       )}

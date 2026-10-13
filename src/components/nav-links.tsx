@@ -16,14 +16,15 @@ const NAV: { label: string; href: string | null; note?: string }[] = [
   { label: "Audit log", href: "/audit" },
 ];
 
+/** A vertical list: the sidebar on desktop and the drawer on a phone. Rows are tall enough for a thumb. */
 export function NavLinks() {
   const path = usePathname();
   return (
-    <nav aria-label="Primary" className="flex gap-1 overflow-x-auto px-3 pb-3 md:flex-col md:pb-5">
+    <nav aria-label="Primary" className="flex flex-col gap-1 px-3 pb-3">
       {NAV.map((item) => {
         if (!item.href) {
           return (
-            <span key={item.label} aria-disabled="true" className="flex items-center justify-between gap-2 whitespace-nowrap rounded px-3 py-2 text-sm text-ink-muted/70">
+            <span key={item.label} aria-disabled="true" className="flex items-center justify-between gap-2 rounded px-3 py-3 text-sm text-ink-muted/70 md:py-2">
               {item.label}
               <Badge>{item.note}</Badge>
             </span>
@@ -36,7 +37,7 @@ export function NavLinks() {
             href={item.href}
             aria-current={active ? "page" : undefined}
             className={cx(
-              "whitespace-nowrap rounded px-3 py-2 text-sm font-semibold transition",
+              "rounded px-3 py-3 text-sm font-semibold transition md:py-2",
               active ? "bg-primary-soft text-primary-ink" : "text-ink-muted hover:bg-recessed hover:text-ink",
             )}
           >

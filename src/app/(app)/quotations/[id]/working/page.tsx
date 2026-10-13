@@ -37,7 +37,7 @@ export default async function QuotationWorkingPage({ params }: { params: Promise
 
       <Card>
         <h2 className="text-base font-semibold">As stored</h2>
-        <table className="mt-2 w-full text-left text-sm">
+        <div className="overflow-x-auto"><table className="mt-2 w-full text-left text-sm">
           <thead><tr className="text-[11px] uppercase tracking-wider text-ink-muted"><th className="py-1">Item</th><th>Detail</th><th className="text-right">Amount</th></tr></thead>
           <tbody>
             {q.lines.map((l, i) => (
@@ -53,8 +53,8 @@ export default async function QuotationWorkingPage({ params }: { params: Promise
             <tr><td colSpan={2} className="py-1">Discount</td><td className="money text-right">-{fmt(q.discountCents)}</td></tr>
             <tr className="border-t border-line"><td colSpan={2} className="py-1 font-semibold">Total</td><td className="money text-right text-base font-semibold">{fmt(q.totalCents)}</td></tr>
           </tfoot>
-        </table>
-        <table className="mt-5 w-full text-left text-sm">
+        </table></div>
+        <div className="overflow-x-auto"><table className="mt-5 w-full text-left text-sm">
           <caption className="mb-1 text-left text-[11px] font-bold uppercase tracking-wider text-ink-muted">Payment schedule</caption>
           <thead><tr className="text-[11px] uppercase tracking-wider text-ink-muted"><th className="py-1">Milestone</th><th className="text-right">Percent</th><th className="text-right">Amount</th></tr></thead>
           <tbody>
@@ -62,7 +62,7 @@ export default async function QuotationWorkingPage({ params }: { params: Promise
               <tr key={i} className="border-t border-line"><td className="py-1">{m.label}</td><td className="money text-right">{m.percent}%</td><td className="money text-right">{fmt(m.amountCents)}</td></tr>
             ))}
           </tbody>
-        </table>
+        </table></div>
       </Card>
 
       <Card>

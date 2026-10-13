@@ -20,6 +20,8 @@ export const viewport: Viewport = {
   themeColor: "#4F46E5",
   width: "device-width",
   initialScale: 1,
+  // Lets the app draw under the notch in the installed app; the layout pads for it with env(safe-area-inset-*).
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

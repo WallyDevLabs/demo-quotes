@@ -69,7 +69,7 @@ export default async function EstimateWorkingPage({ params }: { params: Promise<
         </dl>
 
         {d.method === "time" ? (
-          <table className="mt-4 w-full text-left text-sm">
+          <div className="overflow-x-auto"><table className="mt-4 w-full text-left text-sm">
             <caption className="mb-1 text-left text-[11px] font-bold uppercase tracking-wider text-ink-muted">Labour</caption>
             <thead><tr className="text-[11px] uppercase tracking-wider text-ink-muted"><th className="py-1">Task</th><th>Category</th><th className="text-right">Hours</th><th className="text-right">Rate / h</th><th className="text-right">Line amount</th></tr></thead>
             <tbody>
@@ -81,9 +81,9 @@ export default async function EstimateWorkingPage({ params }: { params: Promise<
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         ) : (
-          <table className="mt-4 w-full text-left text-sm">
+          <div className="overflow-x-auto"><table className="mt-4 w-full text-left text-sm">
             <caption className="mb-1 text-left text-[11px] font-bold uppercase tracking-wider text-ink-muted">Deliverables</caption>
             <thead><tr className="text-[11px] uppercase tracking-wider text-ink-muted"><th className="py-1">Deliverable</th><th className="text-right">Price entered</th><th className="text-right">Est. hours (internal)</th><th className="text-right">After complexity</th></tr></thead>
             <tbody>
@@ -95,11 +95,11 @@ export default async function EstimateWorkingPage({ params }: { params: Promise<
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         )}
 
         {d.expenses.length > 0 && (
-          <table className="mt-4 w-full text-left text-sm">
+          <div className="overflow-x-auto"><table className="mt-4 w-full text-left text-sm">
             <caption className="mb-1 text-left text-[11px] font-bold uppercase tracking-wider text-ink-muted">Expenses (cost and markup stay internal)</caption>
             <thead><tr className="text-[11px] uppercase tracking-wider text-ink-muted"><th className="py-1">Description</th><th className="text-right">Cost</th><th className="text-right">Markup</th><th>Kind</th><th className="text-right">Billed</th></tr></thead>
             <tbody>
@@ -114,7 +114,7 @@ export default async function EstimateWorkingPage({ params }: { params: Promise<
                 );
               })}
             </tbody>
-          </table>
+          </table></div>
         )}
       </Card>
 

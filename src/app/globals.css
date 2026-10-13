@@ -55,6 +55,8 @@ body {
 }
 
 .money {
+  /* An amount never breaks across two lines, even in a narrow box. */
+  white-space: nowrap;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-variant-numeric: tabular-nums;
 }
@@ -84,5 +86,14 @@ textarea {
 @media (prefers-reduced-motion: reduce) {
   .skeleton {
     animation: none;
+  }
+}
+
+/* Phones: iOS zooms the page when a field under 16px is focused, so fields are 16px there. */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 }
