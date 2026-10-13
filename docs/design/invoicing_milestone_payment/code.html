@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"outline":"#777587","on-tertiary-container":"#ffd2b1","error":"#ba1a1a","on-primary-fixed-variant":"#3323cc","surface-bright":"#faf8ff","inverse-primary":"#c3c0ff","primary-container":"#4f46e5","primary-fixed-dim":"#c3c0ff","inverse-surface":"#283044","tertiary":"#703a00","on-tertiary":"#ffffff","on-primary":"#ffffff","surface-container-low":"#f2f3ff","outline-variant":"#c7c4d8","secondary-fixed":"#89f5e7","on-secondary-container":"#006f66","surface-variant":"#dae2fd","secondary":"#006a61","on-secondary-fixed-variant":"#005049","tertiary-fixed":"#ffdcc3","surface":"#faf8ff","on-error-container":"#93000a","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed-dim":"#6bd8cb","surface-dim":"#d2d9f4","primary":"#3525cd","surface-container-highest":"#dae2fd","on-tertiary-fixed":"#2f1500","surface-tint":"#4d44e3","surface-container-high":"#e2e7ff","secondary-container":"#86f2e4","background":"#faf8ff","on-primary-container":"#dad7ff","on-background":"#131b2e","error-container":"#ffdad6","on-secondary":"#ffffff","primary-fixed":"#e2dfff","on-primary-fixed":"#0f0069","tertiary-container":"#934e00","tertiary-fixed-dim":"#ffb77d","on-secondary-fixed":"#00201d","on-tertiary-fixed-variant":"#6e3900","on-surface-variant":"#464555","on-surface":"#131b2e","inverse-on-surface":"#eef0ff","surface-container":"#eaedff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","space-md":"1rem","space-xl":"2.5rem","gutter-mobile":"1rem","space-lg":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","gutter":"1.5rem","margin":"2rem"},"fontFamily":{"display-hero-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"mono-body":["JetBrains Mono"],"body-lg":["Plus Jakarta Sans"],"label-caps":["Plus Jakarta Sans"],"mono-metric-xl":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"mono-metric-lg":["JetBrains Mono"],"mono-caption":["JetBrains Mono"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"mono-metric-xl-mobile":["JetBrains Mono"]},"fontSize":{"display-hero-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-body":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"700"}],"mono-metric-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["40px",{"lineHeight":"48px","letterSpacing":"-0.025em","fontWeight":"700"}],"mono-metric-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"mono-caption":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"mono-metric-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">terminal</span></div><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">CodeQuote</span><span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant mt-space-xs">Freelance Financial Engine</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-high flex items-center justify-between text-on-surface-variant"><span class="font-mono-caption text-mono-caption uppercase tracking-wider text-on-surface-variant">Project Workspace</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div><div class="mt-space-xs px-space-sm py-space-xs bg-surface-container-lowest rounded-lg shadow-sm flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-md text-body-md text-on-surface truncate font-semibold">FinTech Mobile App &amp; API</span></div></div><nav class="flex-1 px-space-md py-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="estimator-calculator" href="#">Estimator &amp; Calculator</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="projects" href="#">Projects</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="quotations" href="#">Quotations</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="invoices-payments" href="#">Invoices &amp; Payments</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="clients" href="#">Clients</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="rates-catalogue" href="#">Rates &amp; Catalogue</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="business-settings" href="#">Business Settings</a></nav></div><div class="p-space-md bg-surface-container-lowest m-space-md rounded-xl shadow-sm space-y-space-xs"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Rate Presets</span><span class="material-symbols-outlined text-[14px]">bolt</span></div><div class="font-mono-caption text-mono-caption text-on-surface-variant space-y-0.5"><div class="flex justify-between"><span class="text-on-surface-variant">Dev:</span><span class="text-on-surface font-semibold">R850/h</span></div><div class="flex justify-between"><span class="text-on-surface-variant">Design:</span><span class="text-on-surface font-semibold">R750/h</span></div><div class="flex justify-between"><span class="text-on-surface-variant">QA:</span><span class="text-on-surface font-semibold">R550/h</span></div></div><div class="pt-space-xs mt-space-xs flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption"><div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>v2.4 · Decimal.js</span></div><span class="material-symbols-outlined text-[14px] text-secondary">cloud_done</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span><span class="font-mono-body text-mono-body text-on-surface font-semibold">ZAR (South Africa · 15% VAT)</span></div><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Online · Engine Ready</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">layers</span><span class="font-body-md text-body-md font-medium text-on-surface">FinTech Mobile App &amp; API</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></div><div class="flex items-center gap-space-sm"><button class="w-9 h-9 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-container-highest transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-body-md text-body-md text-on-surface font-semibold leading-tight">Devon K.</div><div class="font-label-caps text-label-caps text-on-surface-variant">Senior Full-Stack Engineer</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg flex-1"><div class="flex flex-col w-full pb-16 space-y-space-lg">
+<!-- Top Breadcrumb & Workflow Action Header -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<div class="flex flex-col space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs font-mono-caption text-mono-caption text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[15px]">receipt_long</span>
+<span>Invoices &amp; Payments</span>
+</a>
+<span class="text-outline">/</span>
+<span class="text-on-surface font-semibold tracking-wide">INV-2025-0089</span>
+<span class="text-outline">/</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface font-medium">Milestone 1 (30% Deposit)</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight flex items-center gap-space-sm">
+<span>Inception &amp; Architecture Sign-off Deposit</span>
+</h1>
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-amber-50 text-amber-800">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Issued · Pending Balance</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md pt-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">link</span>
+<span>Originated from Quote:</span>
+<a class="font-mono-body text-mono-body text-primary hover:underline font-semibold flex items-center gap-0.5" href="#">
+            QUOTE-2025-0104
+            <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</a>
+</div>
+<span class="text-outline">·</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+<span>Accepted 24 Oct 2025 by Thabo Mthembu</span>
+</div>
+<span class="text-outline">·</span>
+<span class="font-mono-caption text-mono-caption bg-surface-container px-space-xs py-0.5 rounded text-on-surface">Client: ApexLogistics (Pty) Ltd</span>
+</div>
+</div>
+<!-- Header Quick Actions -->
+<div class="flex flex-wrap items-center gap-space-xs pt-space-xs xl:pt-0">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-semibold text-body-md shadow-sm hover:bg-primary transition-all" id="openRecordModalBtn">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Record Payment</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors text-body-md font-medium">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+<span>Tax Invoice PDF</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors text-body-md font-medium">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">forward_to_inbox</span>
+<span>Remind / Receipt</span>
+</button>
+<div class="relative">
+<button class="w-10 h-10 rounded-lg bg-surface-container-low text-on-surface flex items-center justify-center hover:bg-surface-container-high transition-colors" id="moreActionsBtn">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-space-xs w-52 bg-surface-container-lowest rounded-xl shadow-xl p-space-xs z-30" id="moreActionsMenu">
+<button class="w-full text-left px-space-sm py-2 rounded-lg text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">content_copy</span>
+<span>Duplicate Invoice</span>
+</button>
+<button class="w-full text-left px-space-sm py-2 rounded-lg text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">assignment_return</span>
+<span>Issue Credit Note</span>
+</button>
+<button class="w-full text-left px-space-sm py-2 rounded-lg text-body-md text-error hover:bg-error-container/40 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+<span>Void Invoice</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Financial Summary KPI Ribbon -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- Card 1: Invoice Total -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Invoice Total (Inc VAT)</span>
+<span class="material-symbols-outlined text-[18px] text-primary">receipt</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold">R 107,763.34</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">Base: R 93,707.25 + 15% VAT</div>
+</div>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-secondary">
+<span class="material-symbols-outlined text-[15px]">flag</span>
+<span>Milestone 1 of 4 (30%)</span>
+</div>
+<div class="absolute -right-3 -bottom-3 w-16 h-16 bg-primary/5 rounded-full pointer-events-none"></div>
+</div>
+<!-- Card 2: Settled / Paid -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Settled &amp; Verified</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">check_circle</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-lg text-mono-metric-lg text-secondary font-semibold">R 70,000.00</div>
+<div class="flex items-center gap-2 mt-1">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 64.9%"></div>
+</div>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold">64.9%</span>
+</div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">2 Cleared EFT Allocations</div>
+<div class="absolute -right-3 -bottom-3 w-16 h-16 bg-secondary/5 rounded-full pointer-events-none"></div>
+</div>
+<!-- Card 3: Outstanding Balance -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Outstanding Balance</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">schedule</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-lg text-mono-metric-lg text-tertiary font-semibold">R 37,763.34</div>
+<div class="font-mono-caption text-mono-caption text-amber-700 font-medium mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>Due in 5 Days · 07 Nov 2025</span>
+</div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Net 14 settlement period</div>
+<div class="absolute -right-3 -bottom-3 w-16 h-16 bg-tertiary/5 rounded-full pointer-events-none"></div>
+</div>
+<!-- Card 4: SARS 15% VAT -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider">SARS 15% VAT Liability</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_balance</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold">R 14,056.09</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">Input/Output Bi-Monthly Cycle</div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span>SARS VAT Compliant</span>
+</div>
+</div>
+<!-- Card 5: Contract Total -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Total Contract Scope</span>
+<span class="material-symbols-outlined text-[18px] text-primary">pie_chart</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold">R 359,211.13</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">4 Milestones · R 70k (19.5%) Recv</div>
+</div>
+<div class="text-body-sm font-body-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+<span>Healthy 42% Net Margin</span>
+</div>
+</div>
+</div>
+<!-- Main Content Split Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (The Official Tax Invoice Canvas & Details - 7 Cols) -->
+<div class="xl:col-span-7 flex flex-col space-y-space-lg">
+<!-- TAX INVOICE DOCUMENT CARD -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-xl relative overflow-hidden">
+<!-- Top Visual Accent Strip -->
+<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-primary via-primary-container to-secondary"></div>
+<!-- Formal Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md pb-space-lg border-b border-surface-container">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-sm bg-primary-container"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">REPUBLIC OF SOUTH AFRICA · SECTION 20 VAT ACT</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight mt-1">TAX INVOICE</h2>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Original electronic fiscal document</div>
+</div>
+<div class="text-left md:text-right bg-surface-container-low p-space-sm rounded-lg">
+<div class="font-mono-body text-mono-body font-bold text-on-surface">INV-2025-0089</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Issue Date: <span class="text-on-surface font-semibold">24 Oct 2025</span></div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Payment Due: <span class="text-tertiary font-semibold">07 Nov 2025</span></div>
+</div>
+</div>
+<!-- Seller and Buyer Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg py-space-lg border-b border-surface-container">
+<!-- Seller / From -->
+<div class="space-y-1">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">ISSUED BY (SERVICE PROVIDER)</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">Devon K. Engineering</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Senior Full-Stack &amp; Cloud Systems Consultancy</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant pt-1 space-y-0.5">
+<div>Sandton City Precinct, 5th Floor Atrium, Johannesburg</div>
+<div>VAT Registration No: <span class="text-on-surface font-semibold">4920281902</span></div>
+<div>SARS Tax Compliance PIN: <span class="text-on-surface font-semibold font-mono-body">TC-991283-Z</span></div>
+<div>Email: <span class="text-primary">devon@craftledger.engine</span></div>
+</div>
+</div>
+<!-- Buyer / Bill To -->
+<div class="space-y-1">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">BILLED TO (CLIENT ENTITY)</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">ApexLogistics (Pty) Ltd</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Attn: Thabo Mthembu (Chief Technology Officer)</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant pt-1 space-y-0.5">
+<div>142 West Street, Sandown, Sandton 2196, South Africa</div>
+<div>VAT Registration No: <span class="text-on-surface font-semibold">ZA4829104928</span></div>
+<div>Company Registration: <span class="text-on-surface font-semibold font-mono-body">2019/482012/07</span></div>
+<div>Accounts Contact: <span class="text-on-surface font-semibold">accounts@apexlogistics.co.za</span></div>
+</div>
+</div>
+</div>
+<!-- Invoice Context Meta Banner -->
+<div class="my-space-md p-space-sm rounded-lg bg-surface-container-high flex flex-wrap items-center justify-between text-body-sm font-body-sm text-on-surface gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">local_shipping</span>
+<span><strong>Project:</strong> ApexLogistics Telematics &amp; Driver Fleet Dispatch Engine</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono-caption text-mono-caption bg-surface-container-lowest px-2 py-0.5 rounded text-on-surface">Payment Terms: EFT Net 14 Days</span>
+</div>
+</div>
+<!-- Itemised Table -->
+<div class="overflow-x-auto my-space-md">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider">
+<th class="py-2.5 px-space-sm rounded-l">Item &amp; Description</th>
+<th class="py-2.5 px-space-sm text-center">Unit / Term</th>
+<th class="py-2.5 px-space-sm text-right">Rate</th>
+<th class="py-2.5 px-space-sm text-right rounded-r">Amount (ZAR Excl.)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md">
+<!-- Item 1 -->
+<tr>
+<td class="py-space-md px-space-sm align-top">
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Milestone 1: Project Inception &amp; Architecture Sign-off</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1 pl-3.5 space-y-0.5">
+<p>Mobilization initial tranche (30.0% of signed contract R 312,357.50 excl. VAT).</p>
+<p class="font-mono-caption text-mono-caption text-outline">Deliverables: Schema architecture, API contract specs, cloud auth scaffolding, telemetry pipelines.</p>
+</div>
+</td>
+<td class="py-space-md px-space-sm align-top text-center font-mono-body text-mono-body text-on-surface">
+                  1 Milestone
+                </td>
+<td class="py-space-md px-space-sm align-top text-right font-mono-body text-mono-body text-on-surface">
+                  R 93,707.25
+                </td>
+<td class="py-space-md px-space-sm align-top text-right font-mono-body text-mono-body font-semibold text-on-surface">
+                  R 93,707.25
+                </td>
+</tr>
+<!-- Item 2 -->
+<tr>
+<td class="py-space-md px-space-sm align-top">
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Upfront Infrastructure Provisioning Pass-through</span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1 pl-3.5">
+<p>Dedicated Supabase Pro instance configuration, Enterprise Redis cluster &amp; GitHub Actions runner tokens.</p>
+</div>
+</td>
+<td class="py-space-md px-space-sm align-top text-center font-mono-body text-mono-body text-on-surface">
+                  Provisioning
+                </td>
+<td class="py-space-md px-space-sm align-top text-right font-mono-body text-mono-body text-secondary">
+                  Included
+                </td>
+<td class="py-space-md px-space-sm align-top text-right font-mono-body text-mono-body font-semibold text-secondary">
+                  R 0.00
+                </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Financial Calculation Ledger -->
+<div class="bg-surface-container-low rounded-xl p-space-md space-y-space-xs mt-space-md">
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>Subtotal (Excl. VAT)</span>
+<span class="font-mono-body text-mono-body text-on-surface font-semibold">R 93,707.25</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span>SARS Standard Value-Added Tax (15.00%)</span>
+<span class="material-symbols-outlined text-[14px] text-outline">help</span>
+</span>
+<span class="font-mono-body text-mono-body text-on-surface font-semibold">R 14,056.09</span>
+</div>
+<div class="pt-2 border-t border-surface-container flex justify-between items-center text-headline-sm font-headline-sm">
+<span class="text-on-surface font-bold">Total Amount Due (Inc. VAT)</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-primary font-bold">R 107,763.34</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-secondary pt-1">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+<span>Less Cleared EFT Payments Received</span>
+</span>
+<span class="font-mono-body text-mono-body font-bold">- R 70,000.00</span>
+</div>
+<div class="p-space-sm bg-surface-container-highest rounded-lg flex justify-between items-center mt-space-xs">
+<div>
+<div class="font-label-caps text-label-caps uppercase tracking-wider text-tertiary font-bold">CURRENT BALANCE PAYABLE</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Due on or before Friday, 07 November 2025</div>
+</div>
+<div class="text-right">
+<div class="font-mono-metric-lg text-mono-metric-lg text-tertiary font-bold">R 37,763.34</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-semibold">Unsettled</span>
+</div>
+</div>
+</div>
+<!-- Deliverables Checklist Box -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-lowest border border-surface-container">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">fact_check</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Milestone 1 Deliverables Verification</span>
+</div>
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded bg-surface-container-high text-on-surface">2 of 3 Complete</span>
+</div>
+<div class="mt-space-sm space-y-space-xs">
+<div class="flex items-start gap-space-sm p-2 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">check_box</span>
+<div class="flex-1">
+<div class="font-body-md text-body-md font-semibold text-on-surface">Scope lockdown &amp; architectural ERD data schemas approved</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Signed off via GitHub PR #14 by Thabo Mthembu on 24 Oct 2025.</div>
+</div>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold">VERIFIED</span>
+</div>
+<div class="flex items-start gap-space-sm p-2 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">check_box</span>
+<div class="flex-1">
+<div class="font-body-md text-body-md font-semibold text-on-surface">GitHub repository setup &amp; CI/CD pipeline verification</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Staging deployments active on Supabase + Vercel Enterprise runtime.</div>
+</div>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold">VERIFIED</span>
+</div>
+<div class="flex items-start gap-space-sm p-2 rounded-lg bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px] text-tertiary mt-0.5">indeterminate_check_box</span>
+<div class="flex-1">
+<div class="font-body-md text-body-md font-semibold text-on-surface">Multi-tenant PostgreSQL database instance provisioned</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Partitioning tables for 120 logistics fleet units currently running migrations.</div>
+</div>
+<span class="font-mono-caption text-mono-caption text-tertiary font-semibold">IN PROGRESS (85%)</span>
+</div>
+</div>
+</div>
+<!-- Banking & Remittance Advice -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-high flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">account_balance</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface font-bold">EFT SETTLEMENT &amp; REMITTANCE ADVICE</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 font-mono-caption text-mono-caption text-on-surface pt-1">
+<div>Bank: <strong class="text-on-surface">First National Bank (FNB)</strong></div>
+<div>Account: <strong class="text-on-surface font-mono-body">6289 1048 291</strong></div>
+<div>Branch Code: <strong class="text-on-surface">250655</strong></div>
+<div>Account Type: <strong class="text-on-surface">Enterprise Cheque</strong></div>
+<div>Swift Code: <strong class="text-on-surface">FIRNZAJJ</strong></div>
+<div class="col-span-2 sm:col-span-1 text-primary">Ref: <strong class="font-mono-body font-bold">INV-2025-0089-APEX</strong></div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">qr_code_2</span>
+</div>
+<div class="text-left">
+<div class="font-body-md text-body-md font-bold text-on-surface">Instant EFT</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Ozow / PayFast / Capitec Pay</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (Payment Tracking, Ledger, Milestones Overview & Controls - 5 Cols) -->
+<div class="xl:col-span-5 flex flex-col space-y-space-lg">
+<!-- CARD 1: Payment History & Transaction Ledger -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-secondary">account_balance_wallet</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Payment History &amp; Ledger</h3>
+</div>
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">2 Logs Recorded</span>
+</div>
+<!-- Ledger Entries -->
+<div class="space-y-space-sm">
+<!-- Payment 1 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-mono-caption font-bold">#1</span>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface">EFT Direct Deposit</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">25 Oct 2025 · 11:42 SAST</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-secondary">R 50,000.00</div>
+<span class="font-mono-caption text-mono-caption text-secondary font-medium flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Cleared</span>
+</span>
+</div>
+</div>
+<div class="pt-1 border-t border-surface-container flex items-center justify-between text-body-sm font-body-sm">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Ref: <code class="text-on-surface font-semibold">FNB-APEX-DEP01</code></span>
+<a class="text-primary hover:underline font-mono-caption text-mono-caption flex items-center gap-0.5" href="#">
+<span>View Receipt RCT-1082</span>
+<span class="material-symbols-outlined text-[13px]">receipt</span>
+</a>
+</div>
+</div>
+<!-- Payment 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col space-y-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-mono-caption font-bold">#2</span>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface">EFT Direct Deposit</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">28 Oct 2025 · 16:15 SAST</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-secondary">R 20,000.00</div>
+<span class="font-mono-caption text-mono-caption text-secondary font-medium flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Cleared</span>
+</span>
+</div>
+</div>
+<div class="pt-1 border-t border-surface-container flex items-center justify-between text-body-sm font-body-sm">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Ref: <code class="text-on-surface font-semibold">FNB-APEX-DEP02</code></span>
+<a class="text-primary hover:underline font-mono-caption text-mono-caption flex items-center gap-0.5" href="#">
+<span>View Receipt RCT-1089</span>
+<span class="material-symbols-outlined text-[13px]">receipt</span>
+</a>
+</div>
+</div>
+<!-- Pending Remainder Entry -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-tertiary-container text-on-tertiary flex items-center justify-center font-mono-caption font-bold">#3</span>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface">Unpaid Balance Remaining</div>
+<div class="font-mono-caption text-mono-caption text-amber-800">Due Friday, 07 Nov 2025</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-tertiary">R 37,763.34</div>
+<span class="font-mono-caption text-mono-caption text-tertiary font-medium">Pending Settlement</span>
+</div>
+</div>
+</div>
+<!-- Quick Inline Record Teaser -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-surface-container" id="quickRecordBox">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface font-bold">Quick Record Remainder</span>
+<span class="font-mono-caption text-mono-caption text-primary cursor-pointer hover:underline" id="fillExactRemainderBtn">Autofill Exact Balance</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<div>
+<label class="block font-mono-caption text-mono-caption text-on-surface-variant mb-1">Amount (ZAR)</label>
+<div class="relative">
+<span class="absolute left-2.5 top-2 text-outline font-mono-body">R</span>
+<input class="w-full pl-7 pr-2 py-1.5 bg-surface-container-lowest text-on-surface font-mono-body text-mono-body rounded border border-outline-variant focus:outline-none focus:border-primary" id="quickAmountInput" type="text" value="37,763.34"/>
+</div>
+</div>
+<div>
+<label class="block font-mono-caption text-mono-caption text-on-surface-variant mb-1">Channel</label>
+<select class="w-full px-2 py-1.5 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded border border-outline-variant focus:outline-none focus:border-primary">
+<option>FNB EFT Cheque</option>
+<option>Ozow Instant EFT</option>
+<option>Standard Bank Swift</option>
+<option>Credit Card (Stripe)</option>
+</select>
+</div>
+</div>
+<div class="mt-space-xs grid grid-cols-2 gap-space-xs">
+<div>
+<label class="block font-mono-caption text-mono-caption text-on-surface-variant mb-1">Audit Reference</label>
+<input class="w-full px-2 py-1.5 bg-surface-container-lowest text-on-surface font-mono-body text-mono-body rounded border border-outline-variant focus:outline-none focus:border-primary" placeholder="e.g. FNB-APEX-DEP03" type="text" value="FNB-APEX-DEP03"/>
+</div>
+<div>
+<label class="block font-mono-caption text-mono-caption text-on-surface-variant mb-1">Value Date</label>
+<input class="w-full px-2 py-1.5 bg-surface-container-lowest text-on-surface font-mono-body text-mono-body rounded border border-outline-variant focus:outline-none focus:border-primary" type="date" value="2025-11-02"/>
+</div>
+</div>
+<button class="mt-space-sm w-full py-2 bg-secondary text-on-secondary rounded font-body-md font-semibold text-center hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5 shadow-sm" id="submitQuickPaymentBtn">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Confirm &amp; Issue SARS Receipt</span>
+</button>
+</div>
+</div>
+<!-- CARD 2: Overall Contract Milestone Pipeline -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-primary">timeline</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Contract Milestone Pipeline</h3>
+</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">ApexLogistics Dispatch Engine · 4 Tranches</div>
+</div>
+<div class="text-right">
+<span class="font-mono-body text-mono-body font-bold text-on-surface">R 359,211.13</span>
+<div class="font-mono-caption text-mono-caption text-secondary">19.5% Collected</div>
+</div>
+</div>
+<!-- 4 Milestones Stack -->
+<div class="space-y-space-xs">
+<!-- Milestone 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-high border border-primary/30 flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="font-body-md text-body-md font-bold text-on-surface">Milestone 1: Inception &amp; Architecture</span>
+</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">30% Tranche · Current Invoice (INV-2025-0089)</div>
+<div class="font-mono-caption text-mono-caption text-secondary font-semibold">R 70,000 paid · R 37,763 remaining</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-on-surface">R 107,763.34</div>
+<span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">Active</span>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Milestone 2: Core Telematics &amp; Driver App</span>
+</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">35% Tranche · Scheduled for Week 4 (21 Nov 2025)</div>
+<div class="font-mono-caption text-mono-caption text-outline">Uninvoiced · Pending M1 completion</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-on-surface">R 125,723.89</div>
+<span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-bold">Upcoming</span>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Milestone 3: Dispatch Dashboard &amp; UAT</span>
+</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">25% Tranche · Scheduled for Week 7 (12 Dec 2025)</div>
+<div class="font-mono-caption text-mono-caption text-outline">Uninvoiced</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-on-surface">R 89,802.78</div>
+<span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-bold">Upcoming</span>
+</div>
+</div>
+<!-- Milestone 4 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-start justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Milestone 4: Handover, Training &amp; Docs</span>
+</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">10% Final Retention Tranche (30 Jan 2026)</div>
+<div class="font-mono-caption text-mono-caption text-outline">Uninvoiced</div>
+</div>
+<div class="text-right">
+<div class="font-mono-body text-mono-body font-bold text-on-surface">R 35,921.12</div>
+<span class="font-label-caps text-label-caps uppercase px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-bold">Upcoming</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors font-body-md font-semibold text-primary flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">forward</span>
+<span>Draft Milestone 2 Invoice Early (R 125,723.89)</span>
+</button>
+</div>
+<!-- CARD 3: Communications & Automated Chaser Log -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-primary">forward_to_inbox</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Dispatch &amp; Reminder Engine</h3>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">Auto-Chaser On</span>
+</div>
+</div>
+<!-- Activity Timeline -->
+<div class="relative pl-6 space-y-space-sm before:content-[''] before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container">
+<!-- Event 1 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-surface-container-lowest"></div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">Invoice Sent Electronically</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Delivered to accounts@apexlogistics.co.za &amp; thabo@apexlogistics.co.za</div>
+<div class="font-mono-caption text-mono-caption text-outline">24 Oct 2025 · 14:10 SAST</div>
+</div>
+<!-- Event 2 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-secondary ring-4 ring-surface-container-lowest"></div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">Official Receipt #1 Sent (R 50k)</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Acknowledged initial mobilization deposit.</div>
+<div class="font-mono-caption text-mono-caption text-outline">25 Oct 2025 · 11:45 SAST</div>
+</div>
+<!-- Event 3 -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-secondary ring-4 ring-surface-container-lowest"></div>
+<div class="font-body-md text-body-md font-semibold text-on-surface">Official Receipt #2 Sent (R 20k)</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Acknowledged supplementary EFT tranche.</div>
+<div class="font-mono-caption text-mono-caption text-outline">28 Oct 2025 · 16:20 SAST</div>
+</div>
+<!-- Scheduled Event -->
+<div class="relative">
+<div class="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-amber-500 ring-4 ring-surface-container-lowest animate-pulse"></div>
+<div class="font-body-md text-body-md font-semibold text-amber-800">Scheduled: 48h Friendly Reminder</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Pending balance alert (R 37,763.34) queued for dispatch.</div>
+<div class="font-mono-caption text-mono-caption text-amber-700 font-semibold">Scheduled: 05 Nov 2025 · 09:00 SAST</div>
+</div>
+</div>
+<!-- Toggles & Presentation Preferences -->
+<div class="pt-space-sm border-t border-surface-container space-y-space-xs">
+<label class="flex items-center justify-between cursor-pointer text-body-sm font-body-sm text-on-surface">
+<span>Automated Chaser Cadence (48h &amp; 24h)</span>
+<input checked="" class="accent-primary w-4 h-4 rounded cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer text-body-sm font-body-sm text-on-surface">
+<span>Show Deliverable Breakdown on Receipt</span>
+<input checked="" class="accent-primary w-4 h-4 rounded cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer text-body-sm font-body-sm text-on-surface">
+<span>Attach SARS Tax PIN Certificate to PDF</span>
+<input checked="" class="accent-primary w-4 h-4 rounded cursor-pointer" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- STICKY CALCULATION / RECONCILIATION PERSISTENT DOCK -->
+<div class="sticky bottom-0 z-30 bg-surface-container-lowest border-t border-surface-container shadow-xl rounded-t-xl p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<div>
+<div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Settled To Date</div>
+<div class="font-mono-body text-mono-body font-bold text-secondary">R 70,000.00 <span class="font-normal text-on-surface-variant text-[11px]">(64.9%)</span></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<div>
+<div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Balance Due</div>
+<div class="font-mono-body text-mono-body font-bold text-tertiary">R 37,763.34</div>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<div>
+<div class="font-label-caps text-label-caps uppercase text-on-surface-variant">Total Milestone 1 (Inc VAT)</div>
+<div class="font-mono-body text-mono-body font-bold text-on-surface">R 107,763.34</div>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-1.5 px-space-sm py-1 rounded bg-surface-container-low text-on-surface text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-[16px] text-amber-600">timer</span>
+<span>Maturity in <strong>5 Days</strong> (07 Nov 2025)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs w-full md:w-auto justify-end">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors font-body-md font-semibold text-body-md">
+        Send Remittance Copy
+      </button>
+<button class="px-space-md py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-colors font-body-md font-semibold text-body-md flex items-center gap-1.5 shadow-sm" id="dockRecordBtn">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+<span>Record Remaining R 37,763.34</span>
+</button>
+</div>
+</div>
+<!-- Interactive Payment Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/40 backdrop-blur-sm p-4" id="paymentModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl max-w-lg w-full p-space-lg space-y-space-md border border-surface-container">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Record Tranche Payment</h3>
+<p class="font-mono-caption text-mono-caption text-on-surface-variant">Allocating to Invoice INV-2025-0089</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-low flex items-center justify-center text-on-surface-variant" id="closePaymentModalBtn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-sm">
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Payment Amount (ZAR)</label>
+<div class="relative">
+<span class="absolute left-3 top-2.5 text-on-surface-variant font-mono-body">R</span>
+<input class="w-full pl-8 pr-3 py-2 bg-surface-container-low text-on-surface font-mono-body text-mono-body font-bold rounded-lg border border-outline-variant focus:outline-none focus:border-primary" id="modalAmountInput" type="text" value="37,763.34"/>
+</div>
+<div class="flex justify-between items-center mt-1 font-mono-caption text-mono-caption text-on-surface-variant">
+<span>Outstanding Balance: R 37,763.34</span>
+<span class="text-primary cursor-pointer hover:underline" id="setFullBalanceLink">Set Full Balance</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Settlement Method</label>
+<select class="w-full px-3 py-2 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg border border-outline-variant focus:outline-none focus:border-primary">
+<option>FNB EFT Cheque</option>
+<option>Standard Bank Swift</option>
+<option>Ozow Instant EFT</option>
+<option>Direct Cash Deposit</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Receipt Date</label>
+<input class="w-full px-3 py-2 bg-surface-container-low text-on-surface font-mono-body text-mono-body rounded-lg border border-outline-variant focus:outline-none focus:border-primary" type="date" value="2025-11-02"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Bank Audit / Settlement Ref</label>
+<input class="w-full px-3 py-2 bg-surface-container-low text-on-surface font-mono-body text-mono-body rounded-lg border border-outline-variant focus:outline-none focus:border-primary" type="text" value="FNB-APEX-DEP03"/>
+</div>
+<div class="p-space-sm bg-surface-container rounded-lg space-y-1">
+<label class="flex items-center gap-2 cursor-pointer text-body-sm font-body-sm text-on-surface">
+<input checked="" class="accent-primary w-4 h-4 rounded" type="checkbox"/>
+<span>Immediately dispatch tax receipt to Thabo Mthembu</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer text-body-sm font-body-sm text-on-surface">
+<input checked="" class="accent-primary w-4 h-4 rounded" type="checkbox"/>
+<span>Mark Milestone 1 as FULLY SETTLED</span>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="px-space-md py-2 rounded-lg bg-surface-container text-on-surface font-body-md font-medium hover:bg-surface-container-high transition-colors" id="cancelModalBtn">
+          Cancel
+        </button>
+<button class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-md font-semibold hover:bg-primary-container transition-colors shadow-sm flex items-center gap-1.5" id="confirmRecordPaymentBtn">
+<span class="material-symbols-outlined text-[16px]">task_alt</span>
+<span>Post To Ledger</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Box -->
+<div class="fixed bottom-20 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-lg shadow-xl hidden flex items-center gap-3" id="toastNotification">
+<span class="material-symbols-outlined text-secondary text-[22px]">check_circle</span>
+<div>
+<div class="font-body-md text-body-md font-bold text-white">Payment Recorded Successfully</div>
+<div class="font-mono-caption text-mono-caption text-surface-variant">Ledger updated &amp; receipt RCT-1090 queued for dispatch.</div>
+</div>
+</div>
+</div>
+<script>
+  (function initInvoiceTracker() {
+    const moreBtn = document.getElementById('moreActionsBtn');
+    const moreMenu = document.getElementById('moreActionsMenu');
+    const openRecordModalBtn = document.getElementById('openRecordModalBtn');
+    const dockRecordBtn = document.getElementById('dockRecordBtn');
+    const paymentModal = document.getElementById('paymentModal');
+    const closePaymentModalBtn = document.getElementById('closePaymentModalBtn');
+    const cancelModalBtn = document.getElementById('cancelModalBtn');
+    const confirmRecordPaymentBtn = document.getElementById('confirmRecordPaymentBtn');
+    const quickRecordBtn = document.getElementById('submitQuickPaymentBtn');
+    const toast = document.getElementById('toastNotification');
+    const fillExactBtn = document.getElementById('fillExactRemainderBtn');
+    const quickInput = document.getElementById('quickAmountInput');
+    const setFullBalanceLink = document.getElementById('setFullBalanceLink');
+    const modalAmountInput = document.getElementById('modalAmountInput');
+
+    if (moreBtn && moreMenu) {
+      moreBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        moreMenu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', () => {
+        moreMenu.classList.add('hidden');
+      });
+    }
+
+    function showModal() {
+      if (paymentModal) paymentModal.classList.remove('hidden');
+    }
+
+    function hideModal() {
+      if (paymentModal) paymentModal.classList.add('hidden');
+    }
+
+    if (openRecordModalBtn) openRecordModalBtn.addEventListener('click', showModal);
+    if (dockRecordBtn) dockRecordBtn.addEventListener('click', showModal);
+    if (closePaymentModalBtn) closePaymentModalBtn.addEventListener('click', hideModal);
+    if (cancelModalBtn) cancelModalBtn.addEventListener('click', hideModal);
+
+    function triggerToast(msg) {
+      if (!toast) return;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+
+    if (confirmRecordPaymentBtn) {
+      confirmRecordPaymentBtn.addEventListener('click', () => {
+        hideModal();
+        triggerToast();
+      });
+    }
+
+    if (quickRecordBtn) {
+      quickRecordBtn.addEventListener('click', () => {
+        triggerToast();
+      });
+    }
+
+    if (fillExactBtn && quickInput) {
+      fillExactBtn.addEventListener('click', () => {
+        quickInput.value = '37,763.34';
+        quickInput.classList.add('ring-2', 'ring-secondary');
+        setTimeout(() => quickInput.classList.remove('ring-2', 'ring-secondary'), 800);
+      });
+    }
+
+    if (setFullBalanceLink && modalAmountInput) {
+      setFullBalanceLink.addEventListener('click', () => {
+        modalAmountInput.value = '37,763.34';
+      });
+    }
+  })();
+</script></main></div></body></html>

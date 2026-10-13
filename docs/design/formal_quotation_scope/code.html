@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"outline":"#777587","on-tertiary-container":"#ffd2b1","error":"#ba1a1a","on-primary-fixed-variant":"#3323cc","surface-bright":"#faf8ff","inverse-primary":"#c3c0ff","primary-container":"#4f46e5","primary-fixed-dim":"#c3c0ff","inverse-surface":"#283044","tertiary":"#703a00","on-tertiary":"#ffffff","on-primary":"#ffffff","surface-container-low":"#f2f3ff","outline-variant":"#c7c4d8","secondary-fixed":"#89f5e7","on-secondary-container":"#006f66","surface-variant":"#dae2fd","secondary":"#006a61","on-secondary-fixed-variant":"#005049","tertiary-fixed":"#ffdcc3","surface":"#faf8ff","on-error-container":"#93000a","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed-dim":"#6bd8cb","surface-dim":"#d2d9f4","primary":"#3525cd","surface-container-highest":"#dae2fd","on-tertiary-fixed":"#2f1500","surface-tint":"#4d44e3","surface-container-high":"#e2e7ff","secondary-container":"#86f2e4","background":"#faf8ff","on-primary-container":"#dad7ff","on-background":"#131b2e","error-container":"#ffdad6","on-secondary":"#ffffff","primary-fixed":"#e2dfff","on-primary-fixed":"#0f0069","tertiary-container":"#934e00","tertiary-fixed-dim":"#ffb77d","on-secondary-fixed":"#00201d","on-tertiary-fixed-variant":"#6e3900","on-surface-variant":"#464555","on-surface":"#131b2e","inverse-on-surface":"#eef0ff","surface-container":"#eaedff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","space-md":"1rem","space-xl":"2.5rem","gutter-mobile":"1rem","space-lg":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","gutter":"1.5rem","margin":"2rem"},"fontFamily":{"display-hero-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"mono-body":["JetBrains Mono"],"body-lg":["Plus Jakarta Sans"],"label-caps":["Plus Jakarta Sans"],"mono-metric-xl":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"mono-metric-lg":["JetBrains Mono"],"mono-caption":["JetBrains Mono"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"mono-metric-xl-mobile":["JetBrains Mono"]},"fontSize":{"display-hero-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-body":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"700"}],"mono-metric-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["40px",{"lineHeight":"48px","letterSpacing":"-0.025em","fontWeight":"700"}],"mono-metric-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"mono-caption":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"mono-metric-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">terminal</span></div><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">CodeQuote</span><span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant mt-space-xs">Freelance Financial Engine</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-high flex items-center justify-between text-on-surface-variant"><span class="font-mono-caption text-mono-caption uppercase tracking-wider text-on-surface-variant">Project Workspace</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div><div class="mt-space-xs px-space-sm py-space-xs bg-surface-container-lowest rounded-lg shadow-sm flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-md text-body-md text-on-surface truncate font-semibold">FinTech Mobile App &amp; API</span></div></div><nav class="flex-1 px-space-md py-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="estimator-calculator" href="#">Estimator &amp; Calculator</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="projects" href="#">Projects</a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary font-bold shadow-sm" data-path="quotations" href="#">Quotations</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="invoices-payments" href="#">Invoices &amp; Payments</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="clients" href="#">Clients</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="rates-catalogue" href="#">Rates &amp; Catalogue</a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-md text-body-md" data-path="business-settings" href="#">Business Settings</a></nav></div><div class="p-space-md bg-surface-container-lowest m-space-md rounded-xl shadow-sm space-y-space-xs"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Rate Presets</span><span class="material-symbols-outlined text-[14px]">bolt</span></div><div class="font-mono-caption text-mono-caption text-on-surface-variant space-y-0.5"><div class="flex justify-between"><span class="text-on-surface-variant">Dev:</span><span class="text-on-surface font-semibold">R850/h</span></div><div class="flex justify-between"><span class="text-on-surface-variant">Design:</span><span class="text-on-surface font-semibold">R750/h</span></div><div class="flex justify-between"><span class="text-on-surface-variant">QA:</span><span class="text-on-surface font-semibold">R550/h</span></div></div><div class="pt-space-xs mt-space-xs flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption"><div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>v2.4 · Decimal.js</span></div><span class="material-symbols-outlined text-[14px] text-secondary">cloud_done</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span><span class="font-mono-body text-mono-body text-on-surface font-semibold">ZAR (South Africa · 15% VAT)</span></div><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Online · Engine Ready</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">layers</span><span class="font-body-md text-body-md font-medium text-on-surface">FinTech Mobile App &amp; API</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></div><div class="flex items-center gap-space-sm"><button class="w-9 h-9 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-container-highest transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-body-md text-body-md text-on-surface font-semibold leading-tight">Devon K.</div><div class="font-label-caps text-label-caps text-on-surface-variant">Senior Full-Stack Engineer</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg flex-1"><div class="flex flex-col w-full">
+<!-- Top Command & Breadcrumb Strip -->
+<section class="py-space-md flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-mono-caption text-mono-caption uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Quotations</a>
+<span>/</span>
+<span class="text-on-surface font-semibold">QUOTE-2025-0104</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant mx-1"></span>
+<span class="text-secondary font-medium">Synced from #EST-2025-0042</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm mt-0.5">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">
+          ApexLogistics Custom Freight Dispatch Web App &amp; Driver API
+        </h1>
+<div class="relative inline-block" id="status-pill-container">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface shadow-sm">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold text-on-surface">Sent · Pending Acceptance</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant cursor-pointer ml-0.5">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action Bar -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors shadow-sm font-body-md text-body-md font-semibold" onclick="simulatePdfDownload()">
+<span class="material-symbols-outlined text-[18px] text-primary">picture_as_pdf</span>
+<span>Export Official PDF</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors shadow-sm font-body-md text-body-md font-semibold" onclick="triggerEmailModal()">
+<span class="material-symbols-outlined text-[18px] text-secondary">outgoing_mail</span>
+<span>Send to Client</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all shadow-md font-body-md text-body-md font-semibold" onclick="handleConvertInvoice()">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Convert to Milestone 1 Invoice</span>
+</button>
+<div class="relative">
+<button class="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface flex items-center justify-center hover:bg-surface-container-high transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Metric / Overview Ribbon -->
+<section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-sm pb-space-lg">
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Quote Reference</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold mt-1">#0104</span>
+<span class="font-mono-caption text-mono-caption text-secondary mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Validated Hash
+      </span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Issue Date</span>
+<span class="font-mono-body text-mono-body text-on-surface font-bold mt-2">24 Oct 2025</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">Created at 09:40 SAST</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Price Guarantee</span>
+<span class="font-mono-body text-mono-body text-on-surface font-bold mt-2">07 Nov 2025</span>
+<span class="font-mono-caption text-mono-caption text-primary font-semibold mt-0.5">14-Day Lock Window</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Scope Velocity</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold mt-1">176 <span class="font-mono-caption text-mono-caption text-on-surface-variant font-normal">hrs</span></span>
+<span class="font-mono-caption text-mono-caption text-secondary mt-0.5">5 Core Deliverables</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Subtotal (Pre-Tax)</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold mt-1">R 312,357</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">+15% Contingency applied</span>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col bg-gradient-to-br from-surface-container-lowest via-surface-container-low to-primary-fixed/20">
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">Final Total (Inc VAT)</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-primary font-bold mt-1">R 359,211.13</span>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold mt-0.5">15% SARS VAT (R46,853.63)</span>
+</div>
+</section>
+<!-- Main Asymmetric Workspace Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start pb-space-xl">
+<!-- LEFT COLUMN: Client-Facing Document Canvas (Approx 68% -> 8 of 12 cols) -->
+<main class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Primary Sheet Paper Canvas -->
+<article class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg sm:p-space-xl flex flex-col gap-space-xl relative overflow-hidden">
+<!-- Subtle Top Edge Precision Accent -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-primary-container to-secondary"></div>
+<!-- 1. Header & Party Details -->
+<header class="flex flex-col gap-space-lg pb-space-lg bg-surface-container-low/30 p-space-md rounded-xl">
+<div class="flex flex-col sm:flex-row justify-between items-start gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold font-mono-body text-mono-body">CQ</span>
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">Devon K. Engineering</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Independent Systems Architect &amp; Full-Stack Consultant</p>
+<div class="mt-space-sm space-y-0.5 font-mono-caption text-mono-caption text-on-surface-variant">
+<p>Sandton City Precinct, Johannesburg 2196, South Africa</p>
+<p>Tax Clearance Pin: <span class="font-semibold text-on-surface">TC-991283-Z</span> · SARS VAT: <span class="font-semibold text-on-surface">4920281902</span></p>
+<p>devon@codequote.dev · +27 (0)11 884 9200</p>
+</div>
+</div>
+<div class="sm:text-right flex flex-col sm:items-end">
+<span class="px-space-sm py-1 rounded bg-primary-fixed text-on-primary-fixed font-mono-caption text-mono-caption font-bold uppercase tracking-wider">
+                Formal Commercial Quotation
+              </span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-bold mt-2">QUOTE-2025-0104</span>
+<div class="mt-1 space-y-0.5 font-mono-caption text-mono-caption text-on-surface-variant">
+<p>Issue Date: <span class="font-semibold text-on-surface">24 October 2025</span></p>
+<p>Validity Window: <span class="font-semibold text-on-surface">14 Calendar Days</span> (Ends 07 Nov 2025)</p>
+<p>Originator Engine: <span class="text-secondary font-semibold">Estimate #EST-2025-0042</span></p>
+</div>
+</div>
+</div>
+<!-- Bill To vs Issued By Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-md bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold mb-1">Client Entity (Bill To)</span>
+<span class="font-body-md text-body-md font-bold text-on-surface">ApexLogistics (Pty) Ltd</span>
+<span class="font-body-sm text-body-sm text-on-surface">Attn: Thabo Mthembu (Chief Technology Officer)</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant mt-1">142 West Street, Sandton 2196, Gauteng, South Africa</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">VAT Reg No: <strong class="text-on-surface">ZA4829104928</strong> · Company Reg: 2019/482012/07</span>
+</div>
+<div class="flex flex-col md:items-end md:text-right">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold mb-1">Contract Classification</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Milestone-Gated Fixed-Price Scope</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ZAR South African Rand Settlement</span>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold mt-1">SARS VAT Act No. 89 of 1991 (15.00%)</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">IP Transfer: Fully assignable upon Milestone 4 clearance</span>
+</div>
+</div>
+</header>
+<!-- 2. Executive Project Summary & Scope -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded bg-primary-fixed flex items-center justify-center text-primary font-mono-caption text-mono-caption font-bold">01</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Executive Scope &amp; Architecture Matrix</h2>
+</div>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant uppercase">Phase 1 Delivery Cycle</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Deployment of an enterprise-grade freight forwarding dispatch orchestrator and telematics mobile driver gateway. The deliverable encompasses scalable database architecture with multi-tenant row-level access, bidirectional low-latency WebSocket communication for real-time fleet localization, an interactive dispatcher web console, and rigorous automated integration testing suites.
+          </p>
+<!-- Core Deliverables Table Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Planned Deliverable Packages</span>
+<div class="space-y-space-xs">
+<!-- Item 1 -->
+<div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">schema</span>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">D1: System Architecture, Multi-tenant Data Modeling &amp; Auth</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">PostgreSQL schema, Redis pub/sub queue, JWT access tokens, role-based dispatcher access control.</p>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between shrink-0">
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">16 Hrs Dev</span>
+<span class="font-mono-body text-mono-body text-primary font-bold">R 18,880.00</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">palette</span>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">D2: High-Fidelity UI Design System &amp; Dispatcher Console</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Interactive responsive React dashboard, vehicle assignment bay, shipment lifecycle tracking viewports.</p>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between shrink-0">
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">32 Hrs Dev</span>
+<span class="font-mono-body text-mono-body text-primary font-bold">R 37,760.00</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">sensors</span>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">D3: Real-Time WebSocket Driver Telematics &amp; GPS Route Sync</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Driver PWA coordinates broadcast, live geofencing alert triggers, and offline storage synchronization.</p>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between shrink-0">
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">56 Hrs Dev</span>
+<span class="font-mono-body text-mono-body text-primary font-bold">R 66,080.00</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">bar_chart</span>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">D4: Fleet Telematics Dispatch Dashboard &amp; Billing Grid</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live truck position map views, automated waybill PDF rendering, and accounting CSV export engine.</p>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between shrink-0">
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">48 Hrs Dev</span>
+<span class="font-mono-body text-mono-body text-primary font-bold">R 56,640.00</span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="p-space-sm bg-surface-container-lowest rounded-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">flaky</span>
+<div>
+<h3 class="font-body-md text-body-md font-bold text-on-surface">D5: End-to-End Cypress Integration &amp; Load Testing Suite</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automated end-to-end dispatch scenarios, stress testing with 2,500 simultaneous telematics signals.</p>
+</div>
+</div>
+<div class="flex items-center sm:flex-col sm:items-end justify-between shrink-0">
+<span class="font-mono-caption text-mono-caption px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-semibold">24 Hrs Dev</span>
+<span class="font-mono-body text-mono-body text-primary font-bold">R 28,280.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Explicit Scope Exclusions & Assumptions -->
+<div class="p-space-md rounded-xl bg-surface-container-low/60 flex flex-col gap-space-xs">
+<div class="flex items-center gap-1.5 text-on-surface font-semibold font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-amber-600">report_problem</span>
+<span>Explicit Scope Boundaries &amp; Engineering Assumptions</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-mono-caption text-mono-caption">
+<span class="material-symbols-outlined text-[13px] text-error">close</span> Native iOS/Android app compilation excluded (PWA &amp; REST API only)
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-mono-caption text-mono-caption">
+<span class="material-symbols-outlined text-[13px] text-error">close</span> Fleet IoT in-cab hardware procurement not included
+              </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-mono-caption text-mono-caption">
+<span class="material-symbols-outlined text-[13px] text-secondary">check</span> Client provides Google Maps Platform &amp; AWS billing accounts
+              </span>
+</div>
+</div>
+</section>
+<!-- 3. Itemized Commercial Schedule & Pricing Table -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded bg-primary-fixed flex items-center justify-center text-primary font-mono-caption text-mono-caption font-bold">02</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Commercial Pricing Schedule</h2>
+</div>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold">ZAR Pricing Engine 2025</span>
+</div>
+<!-- Commercial Schedule Ledger Table -->
+<div class="overflow-x-auto rounded-xl bg-surface-container-lowest shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">
+<th class="py-3 px-space-md w-12 text-center">#</th>
+<th class="py-3 px-space-md">Scope Item &amp; Specification</th>
+<th class="py-3 px-space-md">Category</th>
+<th class="py-3 px-space-md text-right">Units / Vol</th>
+<th class="py-3 px-space-md text-right">Rate (ZAR)</th>
+<th class="py-3 px-space-md text-right">Subtotal (ZAR)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono-caption text-mono-caption text-center text-on-surface-variant">01</td>
+<td class="py-3 px-space-md">
+<div class="font-semibold text-on-surface">Software Engineering &amp; Architecture Labor</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">176 Hours (D1 to D5 blended specialized dev rate)</div>
+</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-high font-mono-caption text-mono-caption font-semibold">Engineering</span></td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">176.0 hrs</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">R 1,179.77</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body font-semibold text-right">R 207,640.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono-caption text-mono-caption text-center text-on-surface-variant">02</td>
+<td class="py-3 px-space-md">
+<div class="font-semibold text-on-surface">Cloud Pass-Through &amp; Managed Tools</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Supabase Pro tier, Redis cache cluster, Google Maps API dev bucket</div>
+</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-high font-mono-caption text-mono-caption font-semibold">Infra</span></td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">1 Lot</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">R 15,100.00</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body font-semibold text-right">R 15,100.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono-caption text-mono-caption text-center text-on-surface-variant">03</td>
+<td class="py-3 px-space-md">
+<div class="font-semibold text-on-surface">Contingency Allowance &amp; QA Security Buffer</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">15% algorithmic risk mitigation against API protocol drift</div>
+</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-mono-caption text-mono-caption font-semibold">Buffer</span></td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">15.0%</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">R 31,146.00</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body font-semibold text-right">R 31,146.00</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono-caption text-mono-caption text-center text-on-surface-variant">04</td>
+<td class="py-3 px-space-md">
+<div class="font-semibold text-on-surface">Execution Delivery Guarantee &amp; IP Protection</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Commercial delivery SLA markup and code warranty indemnity</div>
+</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-high font-mono-caption text-mono-caption font-semibold">Governance</span></td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">1 Fixed</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right">R 63,471.50</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body font-semibold text-right">R 63,471.50</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors bg-secondary-container/20">
+<td class="py-3 px-space-md font-mono-caption text-mono-caption text-center text-secondary">05</td>
+<td class="py-3 px-space-md">
+<div class="font-semibold text-on-secondary-container">Commercial Client Loyalty Credit / Retainer Rebate</div>
+<div class="font-mono-caption text-mono-caption text-on-secondary-container">Preferred logistics partner reduction</div>
+</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">Discount</span></td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right text-secondary">1 Lot</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body text-right text-secondary">-R 5,000.00</td>
+<td class="py-3 px-space-md font-mono-body text-mono-body font-bold text-right text-secondary">-R 5,000.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Tabulation Summary Card -->
+<div class="flex flex-col sm:flex-row justify-end items-end pt-space-xs">
+<div class="w-full sm:w-80 bg-surface-container-low p-space-md rounded-xl space-y-space-xs shadow-sm">
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Subtotal (Pre-Tax):</span>
+<span class="font-mono-body text-mono-body text-on-surface font-semibold">R 312,357.50</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>SARS VAT (15.00%):</span>
+<span class="font-mono-body text-mono-body text-on-surface font-semibold">R 46,853.63</span>
+</div>
+<div class="pt-space-xs flex justify-between font-headline-sm text-headline-sm text-on-surface font-bold">
+<span>Total Amount:</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-primary">R 359,211.13</span>
+</div>
+<p class="font-mono-caption text-mono-caption text-on-surface-variant text-right">ZAR South African Rand Inclusive</p>
+</div>
+</div>
+<!-- Optional Post-Launch SLA Box -->
+<div class="p-space-md rounded-xl bg-gradient-to-r from-surface-container-low to-secondary-container/30 flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">support_agent</span>
+<div>
+<span class="font-body-md text-body-md font-bold text-on-surface">Optional Post-Launch Retainer: Tier-2 SLA Support</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Includes 12 hours monthly proactive maintenance, CVE patch audits, and 4-hour SLA incident response.</p>
+</div>
+</div>
+<div class="flex items-baseline sm:flex-col sm:items-end justify-between shrink-0">
+<span class="font-mono-metric-lg text-mono-metric-lg text-secondary font-bold">R 6,800.00</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">/ month recurring</span>
+</div>
+</div>
+</section>
+<!-- 4. Phased Payment Milestone Schedule -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded bg-primary-fixed flex items-center justify-center text-primary font-mono-caption text-mono-caption font-bold">03</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Structured Payment Milestones</h2>
+</div>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">4 Contract Phases</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Milestone 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-caps text-label-caps text-primary font-bold uppercase tracking-wider">Milestone 1 · 30%</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface mt-0.5">Project Inception &amp; Architecture Sign-off</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">Ready for Deposit</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-space-md">
+                Scope lockdown, ERD data schemas approved, GitHub setup &amp; baseline CI/CD pipelines verified.
+              </p>
+<div class="flex justify-between items-end pt-space-xs bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Due: Upon Acceptance</span>
+<span class="font-mono-body text-mono-body font-bold text-on-surface">R 107,763.34</span>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-outline-variant"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-bold uppercase tracking-wider">Milestone 2 · 35%</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface mt-0.5">Core Telematics &amp; Driver Socket Engine</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-mono-caption text-mono-caption font-semibold">Upcoming</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-space-md">
+                Driver PWA communication active, live coordinate push tests pass with staging fleet simulator.
+              </p>
+<div class="flex justify-between items-end pt-space-xs bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Due: Week 4</span>
+<span class="font-mono-body text-mono-body font-bold text-on-surface">R 125,723.89</span>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-outline-variant"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-bold uppercase tracking-wider">Milestone 3 · 25%</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface mt-0.5">UAT &amp; Staging Deployment</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-mono-caption text-mono-caption font-semibold">Upcoming</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-space-md">
+                Client acceptance testing on dedicated staging URL with realistic fleet dispatch test data.
+              </p>
+<div class="flex justify-between items-end pt-space-xs bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Due: Week 7</span>
+<span class="font-mono-body text-mono-body font-bold text-on-surface">R 89,802.78</span>
+</div>
+</div>
+<!-- Milestone 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-outline-variant"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-bold uppercase tracking-wider">Milestone 4 · 10%</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface mt-0.5">Production Handover &amp; Docs Sign-off</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-mono-caption text-mono-caption font-semibold">Final Handover</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-space-md">
+                DNS handover, production deployment, runbooks delivery, repository master branch transferred.
+              </p>
+<div class="flex justify-between items-end pt-space-xs bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Due: Handover</span>
+<span class="font-mono-body text-mono-body font-bold text-on-surface">R 35,921.12</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Standard Terms & South African Banking Details -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Terms & Policies -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold tracking-wider">Legal Terms &amp; Scope Goverance</span>
+<div class="space-y-2 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">schedule</span>
+<p><strong class="text-on-surface">Payment Terms:</strong> Net 14 days from presentation of milestone invoice. Late settlements accrue interest at prime + 2%.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">sync_alt</span>
+<p><strong class="text-on-surface">Revision Cycle:</strong> Includes 2 revision passes per phase. Extra adjustments billed at standard rate of R 850/hr.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">copyright</span>
+<p><strong class="text-on-surface">Code Ownership:</strong> Intellectual Property vests in ApexLogistics (Pty) Ltd upon full settlement of Milestone 4.</p>
+</div>
+</div>
+</div>
+<!-- Banking Coordinates -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold tracking-wider">South African Banking Coordinates</span>
+<div class="mt-2 space-y-1 font-mono-body text-mono-body text-on-surface">
+<div class="flex justify-between"><span class="text-on-surface-variant">Bank:</span> <span class="font-semibold">First National Bank (FNB)</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">Account Type:</span> <span class="font-semibold">Commercial Enterprise Cheque</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">Branch Code:</span> <span class="font-semibold">250655 (Sandton Commercial)</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">Account Number:</span> <span class="font-bold text-primary tracking-wide">6289 1048 291</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">Swift Code:</span> <span class="font-semibold">FIRNZAJJ</span></div>
+</div>
+</div>
+<div class="mt-3 p-space-xs rounded bg-surface-container-lowest flex items-center justify-between text-on-surface font-mono-caption text-mono-caption">
+<span class="text-on-surface-variant">Remittance Reference:</span>
+<span class="font-bold text-primary">QUOTE-0104-APEX</span>
+</div>
+</div>
+</section>
+<!-- 6. Acceptance & Digital Signature Block -->
+<section class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-space-xs">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold tracking-wider">Execution Acceptance</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Formal Counterpart Acceptance &amp; Authorization</h2>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-mono-caption text-mono-caption font-bold">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span>Awaiting Client Sign-off</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Consultant Signature Box -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Issued By (Consultant)</span>
+<div class="my-space-sm h-14 flex items-center">
+<span class="font-display-hero text-headline-lg italic font-serif text-primary opacity-80 select-none">Devon K.</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface font-semibold">Devon K.</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">Lead Full-Stack Systems Architect</div>
+</div>
+<div class="mt-space-md pt-space-xs font-mono-caption text-mono-caption text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done_all</span> Digitally Verified · 24 Oct 2025 09:40 SAST
+              </div>
+</div>
+<!-- Client Signature Action Box -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant font-bold">Accepted By (Client Entity)</span>
+<div class="my-space-sm h-14 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant text-center px-space-sm">
+<span class="font-mono-caption text-mono-caption italic">Pending digital signature from Thabo Mthembu</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface font-semibold">Thabo Mthembu (CTO)</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant">ApexLogistics (Pty) Ltd</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<button class="w-full inline-flex items-center justify-center gap-1.5 px-space-md py-2 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 transition-all font-body-sm text-body-sm font-semibold shadow-sm" onclick="simulateClientSignature()">
+<span class="material-symbols-outlined text-[16px]">draw</span>
+<span>Simulate Client Acceptance</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</article>
+</main>
+<!-- RIGHT COLUMN: Inspector, Toggles & Sticky Audit Panel (Approx 32% -> 4 of 12 cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-md sticky top-20">
+<!-- Panel 1: Document Workflow & Status Switcher -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Document State</span>
+<span class="font-mono-caption text-mono-caption text-secondary font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Live
+          </span>
+</div>
+<!-- Workflow Status Segmented Buttons -->
+<div class="grid grid-cols-4 gap-1 p-1 bg-surface-container-low rounded-lg text-center font-mono-caption text-mono-caption font-semibold">
+<button class="py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors">Draft</button>
+<button class="py-1.5 rounded bg-surface-container-lowest text-primary shadow-sm font-bold">Sent</button>
+<button class="py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors">Accepted</button>
+<button class="py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors">Rejected</button>
+</div>
+<!-- One-Click Milestone 1 Invoice Generator -->
+<div class="p-space-md rounded-xl bg-gradient-to-br from-primary-fixed to-primary-container/10 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">Milestone 1 Conversion</span>
+<span class="font-mono-caption text-mono-caption text-primary font-bold">INV-2025-0089</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Generate the first milestone tax invoice (30% Project Inception) immediately with pre-filled SARS data.</p>
+<div class="flex items-baseline justify-between mt-1">
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Amount:</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-primary font-bold">R 107,763.34</span>
+</div>
+<button class="mt-2 w-full py-2.5 px-3 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold flex items-center justify-center gap-1.5 hover:bg-primary-container transition-all shadow-md" onclick="handleConvertInvoice()">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span>Generate Inception Invoice</span>
+</button>
+</div>
+</div>
+<!-- Panel 2: Live Client Portal Link & Engagement Analytics -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Live Client Portal &amp; Telemetry</span>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">link</span>
+<span class="font-mono-caption text-mono-caption text-on-surface truncate flex-1 select-all">https://codequote.dev/q/apex-0104-sec</span>
+<button class="p-1 rounded bg-surface-container-lowest text-primary hover:bg-surface-container-high transition-colors" id="copy-btn" onclick="copyPortalLink()">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-1">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Total Views</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold mt-0.5">4 Times</span>
+<span class="font-mono-caption text-mono-caption text-secondary mt-0.5">By Thabo Mthembu</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Downloads</span>
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface font-semibold mt-0.5">1 Copy</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant mt-0.5">PDF rendered 14:12</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-mono-caption text-mono-caption pt-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">visibility</span>
+<span>Last client interaction: <strong class="text-on-surface font-semibold">Today at 14:12 SAST</strong></span>
+</div>
+</div>
+<!-- Panel 3: Quotation Settings & Visibility Toggles -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Document Presentation Toggles</span>
+<div class="space-y-space-xs mt-1">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Hourly Dev Breakdown</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Display task-level hourly estimates</span>
+</div>
+<button class="w-10 h-5 bg-surface-container-highest rounded-full p-0.5 transition-colors relative" onclick="toggleSwitch(this)">
+<div class="w-4 h-4 bg-on-surface-variant rounded-full shadow-sm transform transition-transform"></div>
+</button>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">SARS VAT Itemization</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">15% Value Added Tax schedule</span>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full p-0.5 transition-colors relative" onclick="toggleSwitch(this)">
+<div class="w-4 h-4 bg-on-primary rounded-full shadow-sm transform translate-x-5 transition-transform"></div>
+</button>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Post-Launch SLA Clause</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Display R6,800/mo retainer module</span>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full p-0.5 transition-colors relative" onclick="toggleSwitch(this)">
+<div class="w-4 h-4 bg-on-primary rounded-full shadow-sm transform translate-x-5 transition-transform"></div>
+</button>
+</div>
+<!-- Toggle 4 -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Mandatory E-Signature</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Require digital signature for sign-off</span>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full p-0.5 transition-colors relative" onclick="toggleSwitch(this)">
+<div class="w-4 h-4 bg-on-primary rounded-full shadow-sm transform translate-x-5 transition-transform"></div>
+</button>
+</div>
+</div>
+</div>
+<!-- Panel 4: Audit Trail & Version History -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Audit Trail &amp; Version History</span>
+<div class="space-y-space-sm mt-1">
+<!-- Current Version -->
+<div class="flex items-start gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary mt-1.5 shrink-0"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-mono-caption text-mono-caption font-bold text-on-surface">v1.2 (Active)</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">24 Oct 2025 · 09:40</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Applied commercial client loyalty rebate (-R 5,000.00)</p>
+</div>
+</div>
+<!-- Version 1.1 -->
+<div class="flex items-start gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant mt-1.5 shrink-0"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-mono-caption text-mono-caption font-semibold text-on-surface">v1.1</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">23 Oct 2025 · 17:15</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Embedded 15% QA contingency buffer following risk analysis</p>
+</div>
+</div>
+<!-- Initial Version -->
+<div class="flex items-start gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant mt-1.5 shrink-0"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-mono-caption text-mono-caption font-semibold text-on-surface">v1.0</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">23 Oct 2025 · 11:30</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct conversion from Estimator Calculator #EST-2025-0042</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel 5: Export & Data Utilities -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant font-bold">Export Engines &amp; Output</span>
+<div class="grid grid-cols-1 gap-1.5 pt-1">
+<button class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors font-body-sm text-body-sm text-on-surface font-semibold" onclick="simulatePdfDownload()">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-error">picture_as_pdf</span>
+<span>Download Tax Invoice Preview</span>
+</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">1.4 MB</span>
+</button>
+<button class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors font-body-sm text-body-sm text-on-surface font-semibold" onclick="simulateCsvExport()">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">table_view</span>
+<span>Download Milestones CSV</span>
+</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">12 KB</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toast">
+<div class="bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-xl flex items-center gap-space-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary" id="toast-icon">check_circle</span>
+<span id="toast-message">Notification action completed</span>
+</div>
+</div>
+<!-- Micro-Interactions Script -->
+<script>
+    function showToast(message, icon = 'check_circle') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+      
+      toastMsg.textContent = message;
+      toastIcon.textContent = icon;
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
+    function copyPortalLink() {
+      const link = 'https://codequote.dev/q/apex-0104-sec';
+      navigator.clipboard ? navigator.clipboard.writeText(link) : null;
+      showToast('Client portal link copied to clipboard', 'content_copy');
+    }
+
+    function simulatePdfDownload() {
+      showToast('Compiling high-resolution PDF with SARS tax markers...', 'downloading');
+      setTimeout(() => {
+        showToast('PDF downloaded: QUOTE-2025-0104_ApexLogistics.pdf', 'download_done');
+      }, 1200);
+    }
+
+    function triggerEmailModal() {
+      showToast('Transmitted secure quote invitation to thabo@apexlogistics.co.za', 'mark_email_read');
+    }
+
+    function handleConvertInvoice() {
+      showToast('Milestone 1 invoice generated: INV-2025-0089 (R 107,763.34)', 'bolt');
+    }
+
+    function simulateClientSignature() {
+      showToast('Simulation: ApexLogistics acceptance authorized & signed.', 'draw');
+    }
+
+    function simulateCsvExport() {
+      showToast('Exported milestone schedules to CSV', 'table_view');
+    }
+
+    function toggleSwitch(btn) {
+      const knob = btn.querySelector('div');
+      const isActive = btn.classList.contains('bg-primary');
+      
+      if (isActive) {
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-surface-container-highest');
+        knob.classList.remove('translate-x-5', 'bg-on-primary');
+        knob.classList.add('bg-on-surface-variant');
+        showToast('Quotation preview preference updated', 'tune');
+      } else {
+        btn.classList.remove('bg-surface-container-highest');
+        btn.classList.add('bg-primary');
+        knob.classList.remove('bg-on-surface-variant');
+        knob.classList.add('translate-x-5', 'bg-on-primary');
+        showToast('Quotation preview preference updated', 'tune');
+      }
+    }
+  </script>
+</div></main></div></body></html>

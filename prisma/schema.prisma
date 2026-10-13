@@ -1,0 +1,578 @@
+// PRD v2 data model. Rules that shape this file:
+//  - Money is integer cents in BigInt columns. Percentages are Decimal(5,2). Hours are Decimal(8,2).
+//  - Every table carries ownerId (one owner today; multi-user later without a rewrite).
+//  - Due, issue and expiry dates are calendar dates (DATE), never timestamps.
+//  - Quotations and invoices copy what they need at send/issue (snapshots) and are frozen after.
+//  - Paid / partially paid / overdue are derived by the domain layer and are never stored.
+//  - Payments are append-only; a reversal is a new row referencing the original.
+//  - Numbers are nullable until send/issue and allocated from NumberCounter inside the issuing
+//    transaction (SELECT ... FOR UPDATE), so a rollback consumes no number.
+//  - ZAR and USD. One currency per document; there is no conversion logic anywhere.
+
+generator client {
+  provider      = "prisma-client-js"
+  // "native" for your machine, plus the Linux build that Vercel runs.
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LabourCategory {
+  DEVELOPMENT
+  DESIGN
+  TESTING
+  CONSULTING
+  PROJECT_MANAGEMENT
+}
+
+enum Complexity {
+  BASIC
+  INTERMEDIATE
+  ADVANCED
+  ENTERPRISE
+}
+
+enum PricingMethod {
+  TIME
+  FIXED
+}
+
+enum EstimateStatus {
+  DRAFT
+  READY
+}
+
+enum EstimateLineKind {
+  LABOUR
+  DELIVERABLE
+  EXPENSE
+}
+
+enum RecurringPeriod {
+  MONTHLY
+  ANNUAL
+}
+
+enum ProjectStatus {
+  LEAD
+  QUOTED
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+}
+
+enum QuotationStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  ISSUED
+  CANCELLED
+}
+
+/// NONE is the only mode in the MVP. STANDARD / ZERO_RATED / EXEMPT arrive with phase two.
+enum VatMode {
+  NONE
+  STANDARD
+  ZERO_RATED
+  EXEMPT
+}
+
+/// What a client-facing quotation line is. Cost, markup and internal hours are never stored here.
+enum QuotationLineKind {
+  LABOUR
+  DELIVERABLE
+  EXPENSE
+  URGENCY
+  CONTINGENCY
+  /// Listed separately and never part of the total.
+  RECURRING
+}
+
+enum PaymentMethod {
+  EFT
+  CARD
+  CASH
+  OTHER
+}
+
+enum PaymentLabel {
+  DEPOSIT
+  MILESTONE
+  FINAL
+  OTHER
+}
+
+/// ZAR and USD. One currency per document, no conversion anywhere.
+enum Currency {
+  ZAR
+  USD
+}
+
+enum CounterKind {
+  QUOTATION
+  INVOICE
+}
+
+enum FileKind {
+  LOGO
+  QUOTATION_PDF
+  INVOICE_PDF
+}
+
+model User {
+  id                 String    @id @default(uuid())
+  email              String    @unique
+  passwordHash       String
+  /// Encrypted TOTP secret. A second factor is required (enforced in the auth milestone).
+  totpSecretEnc      String?
+  totpEnabledAt      DateTime?
+  recoveryCodeHashes String[]
+  /// Bumped to end every session at once (sign out everywhere, password change).
+  sessionVersion     Int       @default(0)
+  /// The last accepted TOTP time step: a code can be used only once (replay protection).
+  totpLastStep       Int?
+  /// scrypt hash of the 4 digit PIN. The PIN only works together with a trusted-device cookie.
+  pinHash            String?
+  trustedDevices     TrustedDevice[]
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+/// A browser that has passed password + authenticator code. Only a hash of its secret is stored, so a
+/// database leak cannot be turned into a cookie. Deleted after too many wrong PINs.
+model TrustedDevice {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash   String
+  label       String
+  pinFailures Int      @default(0)
+  createdAt   DateTime @default(now())
+  lastUsedAt  DateTime @default(now())
+  expiresAt   DateTime
+
+  @@index([userId])
+}
+
+model BusinessSettings {
+  id      String @id @default(uuid())
+  ownerId String @unique
+
+  legalName          String   @default("")
+  tradingName        String?
+  registrationNumber String?
+  address            String   @default("")
+  email              String   @default("")
+  phone              String   @default("")
+  logoFileId         String?
+  defaultCurrency    Currency @default(ZAR)
+
+  hoursPerDay           Decimal @default(8) @db.Decimal(4, 2)
+  urgencyPct            Decimal @default(0) @db.Decimal(5, 2)
+  contingencyPct        Decimal @default(0) @db.Decimal(5, 2)
+  quotationValidityDays Int     @default(30)
+  paymentTermsDays      Int     @default(14)
+  upcomingWindowDays    Int     @default(14)
+
+  /// [{ label, percent }] with percentages totalling exactly 100.
+  defaultMilestones  Json   @default("[]")
+  revisionPolicy     String @default("")
+  termsAndConditions String @default("")
+
+  quotationPattern String @default("QUO{YYYY}{SEQ:4}")
+  invoicePattern   String @default("INV{YYYY}{SEQ:4}")
+
+  // VAT: carried for phase two. Off by default, and the interface hides these while off.
+  vatRegistered     Boolean @default(false)
+  vatNumber         String?
+  vatRatePct        Decimal @default(15) @db.Decimal(5, 2)
+  vatThresholdCents BigInt?
+  vatWarnSharePct   Decimal @default(80) @db.Decimal(5, 2)
+
+  updatedAt DateTime @updatedAt
+}
+
+/// Hourly rate per category per currency. USD rates are set by you, never converted from rand.
+model RateSetting {
+  id          String         @id @default(uuid())
+  ownerId     String
+  currency    Currency
+  category    LabourCategory
+  hourlyCents BigInt
+  updatedAt   DateTime       @updatedAt
+
+  @@unique([ownerId, currency, category])
+}
+
+/// Per-currency settings: the minimum effective hourly rate and where that currency is paid.
+model CurrencySettings {
+  id                     String   @id @default(uuid())
+  ownerId                String
+  currency               Currency
+  minimumHourlyRateCents BigInt   @default(0)
+  /// { bankName, accountName, accountNumber, branchCode, swiftCode, accountType, instructions }
+  bankingDetails         Json     @default("{}")
+  updatedAt              DateTime @updatedAt
+
+  @@unique([ownerId, currency])
+}
+
+/// Seeded at 1.00 for all four levels so nothing is assumed (SET4).
+model ComplexityMultiplier {
+  id         String     @id @default(uuid())
+  ownerId    String
+  level      Complexity
+  multiplier Decimal    @default(1.00) @db.Decimal(5, 2)
+  updatedAt  DateTime   @updatedAt
+
+  @@unique([ownerId, level])
+}
+
+model NumberCounter {
+  id      String      @id @default(uuid())
+  ownerId String
+  kind    CounterKind
+  /// The next sequence to hand out. Only ever raised.
+  next    Int         @default(1)
+
+  @@unique([ownerId, kind])
+}
+
+model Client {
+  id                 String    @id @default(uuid())
+  ownerId            String
+  name               String
+  /// Short code usable in numbering patterns as {CLIENT}.
+  code               String?
+  contactPerson      String?
+  email              String?
+  phone              String?
+  address            String?
+  companyName        String?
+  registrationNumber String?
+  /// Stored, unused until VAT mode exists.
+  vatNumber          String?
+  notes              String?
+  /// A client with documents is archived, never deleted.
+  archivedAt         DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  projects   Project[]
+  quotations Quotation[]
+  invoices   Invoice[]
+
+  @@unique([ownerId, code])
+  @@index([ownerId])
+}
+
+model Project {
+  id          String        @id @default(uuid())
+  ownerId     String
+  clientId    String
+  client      Client        @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  name        String
+  /// Short code usable in numbering patterns as {PRJ}.
+  code        String?
+  description String?
+  status      ProjectStatus @default(LEAD)
+  deadline    DateTime?     @db.Date
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  estimates  Estimate[]
+  quotations Quotation[]
+  invoices   Invoice[]
+
+  @@unique([ownerId, code])
+  @@index([ownerId, status])
+  @@index([clientId])
+}
+
+model Estimate {
+  id                   String         @id @default(uuid())
+  ownerId              String
+  projectId            String
+  project              Project        @relation(fields: [projectId], references: [id], onDelete: Restrict)
+  title                String         @default("")
+  currency             Currency       @default(ZAR)
+  method               PricingMethod
+  status               EstimateStatus @default(DRAFT)
+  complexity           Complexity?
+  /// Multiplier in force when the estimate was last saved (Method B).
+  complexityMultiplier Decimal?       @db.Decimal(5, 2)
+
+  urgent         Boolean  @default(false)
+  urgencyPct     Decimal  @default(0) @db.Decimal(5, 2)
+  contingencyPct Decimal  @default(0) @db.Decimal(5, 2)
+  discountPct    Decimal? @db.Decimal(5, 2)
+  discountCents  BigInt?
+  internalNotes  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lines      EstimateLine[]
+  quotations Quotation[]
+
+  @@index([ownerId])
+  @@index([projectId])
+}
+
+model EstimateLine {
+  id         String           @id @default(uuid())
+  ownerId    String
+  estimateId String
+  estimate   Estimate         @relation(fields: [estimateId], references: [id], onDelete: Cascade)
+  kind       EstimateLineKind
+  position   Int
+
+  description    String
+  // LABOUR
+  category       LabourCategory?
+  hours          Decimal?         @db.Decimal(8, 2)
+  rateCents      BigInt?
+  rateOverridden Boolean          @default(false)
+  // DELIVERABLE (hours above are the internal estimate)
+  priceCents     BigInt?
+  // EXPENSE
+  costCents      BigInt?
+  markupPct      Decimal?         @db.Decimal(5, 2)
+  recurring      Boolean          @default(false)
+  period         RecurringPeriod?
+
+  @@index([estimateId, position])
+}
+
+model Quotation {
+  id         String    @id @default(uuid())
+  ownerId    String
+  clientId   String
+  client     Client    @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  projectId  String
+  project    Project   @relation(fields: [projectId], references: [id], onDelete: Restrict)
+  estimateId String?
+  estimate   Estimate? @relation(fields: [estimateId], references: [id], onDelete: SetNull)
+
+  /// Null for drafts. Allocated at send.
+  number String?
+  status QuotationStatus @default(DRAFT)
+
+  // Whitelisted client-facing content (QUO1/QUO5). Editable only while DRAFT.
+  title          String @default("")
+  scope          String @default("")
+  deliverables   String @default("")
+  exclusions     String @default("")
+  timeline       String @default("")
+  revisionPolicy String @default("")
+  terms          String @default("")
+
+  issueDate  DateTime? @db.Date
+  expiryDate DateTime? @db.Date
+
+  currency      Currency @default(ZAR)
+  vatMode       VatMode  @default(NONE)
+  subtotalCents BigInt   @default(0)
+  discountCents BigInt   @default(0)
+  vatCents      BigInt   @default(0)
+  totalCents    BigInt   @default(0)
+
+  /// Copied at send so later settings or client edits never change the document.
+  businessSnapshot Json?
+  clientSnapshot   Json?
+
+  sentAt          DateTime?
+  acceptedAt      DateTime? @db.Date
+  acceptedBy      String?
+  rejectedAt      DateTime? @db.Date
+  rejectionReason String?
+  pdfFileId       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lines      QuotationLine[]
+  milestones QuotationMilestone[]
+  invoices   Invoice[]
+
+  @@unique([ownerId, number])
+  @@index([ownerId, status])
+  @@index([projectId])
+}
+
+model QuotationLine {
+  id          String            @id @default(uuid())
+  ownerId     String
+  quotationId String
+  quotation   Quotation         @relation(fields: [quotationId], references: [id], onDelete: Restrict)
+  position    Int
+  kind        QuotationLineKind
+  description String
+  /// Client-facing detail, for example "40 h x R600.00" or "per month".
+  detail      String            @default("")
+  amountCents BigInt
+
+  @@index([quotationId, position])
+}
+
+model QuotationMilestone {
+  id          String    @id @default(uuid())
+  ownerId     String
+  quotationId String
+  quotation   Quotation @relation(fields: [quotationId], references: [id], onDelete: Restrict)
+  position    Int
+  label       String
+  percent     Decimal   @db.Decimal(5, 2)
+  amountCents BigInt
+
+  invoices Invoice[]
+
+  @@index([quotationId, position])
+}
+
+model Invoice {
+  id           String              @id @default(uuid())
+  ownerId      String
+  clientId     String
+  client       Client              @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  projectId    String
+  project      Project             @relation(fields: [projectId], references: [id], onDelete: Restrict)
+  quotationId  String?
+  quotation    Quotation?          @relation(fields: [quotationId], references: [id], onDelete: Restrict)
+  /// A milestone is invoiced once (partial unique index in SQL: a cancelled invoice frees it). Null for a custom invoice.
+  milestoneId  String?
+  milestone    QuotationMilestone? @relation(fields: [milestoneId], references: [id], onDelete: Restrict)
+  /// Mandatory for a custom invoice (INV1).
+  customReason String?
+
+  /// Null for drafts. Allocated at issue, gap free.
+  number String?
+  /// Only draft, issued and cancelled are stored (INV5).
+  status InvoiceStatus @default(DRAFT)
+
+  issueDate DateTime? @db.Date
+  dueDate   DateTime? @db.Date
+
+  currency      Currency @default(ZAR)
+  vatMode       VatMode  @default(NONE)
+  subtotalCents BigInt   @default(0)
+  discountCents BigInt   @default(0)
+  vatCents      BigInt   @default(0)
+  totalCents    BigInt   @default(0)
+
+  businessSnapshot     Json?
+  clientSnapshot       Json?
+  /// Banking details and payment reference as printed on the PDF.
+  bankingSnapshot      Json?
+  paymentReference     String?
+  /// USD invoices only: the rand value at issue, entered by you, used only by the VAT threshold monitor.
+  zarValueAtIssueCents BigInt?
+
+  cancelledAt  DateTime?
+  cancelReason String?
+  pdfFileId    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lines    InvoiceLine[]
+  payments Payment[]
+
+  @@unique([ownerId, number])
+  @@index([ownerId, status])
+  @@index([quotationId])
+  @@index([dueDate])
+}
+
+model InvoiceLine {
+  id          String  @id @default(uuid())
+  ownerId     String
+  invoiceId   String
+  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Restrict)
+  position    Int
+  description String
+  /// Client-facing detail, for example the quotation this milestone belongs to.
+  detail      String  @default("")
+  amountCents BigInt
+
+  @@index([invoiceId, position])
+}
+
+/// Append only: never updated, never deleted. A reversal is a new row whose reversesPaymentId
+/// points at the original; both stay visible and the balance is restored.
+model Payment {
+  id        String  @id @default(uuid())
+  ownerId   String
+  invoiceId String
+  invoice   Invoice @relation(fields: [invoiceId], references: [id], onDelete: Restrict)
+
+  /// Always positive. For a reversal it equals the original amount.
+  amountCents BigInt
+  receivedOn  DateTime      @db.Date
+  method      PaymentMethod
+  /// Descriptive only; never changes a calculation (PAY1).
+  label       PaymentLabel  @default(OTHER)
+  reference   String?
+  notes       String?
+
+  reversesPaymentId String?  @unique
+  reversesPayment   Payment? @relation("Reversal", fields: [reversesPaymentId], references: [id], onDelete: Restrict)
+  reversal          Payment? @relation("Reversal")
+  reversalReason    String?
+
+  createdAt DateTime @default(now())
+
+  @@index([invoiceId])
+  @@index([ownerId, receivedOn])
+}
+
+/// Stored PDFs and the logo. PDFs are served unchanged (private storage, authenticated route).
+model StoredFile {
+  id          String   @id @default(uuid())
+  ownerId     String
+  kind        FileKind
+  storageKey  String   @unique
+  contentType String
+  sizeBytes   Int
+  sha256      String
+  /// The file itself. Kept in Postgres: private, covered by the same backups, and served unchanged.
+  data        Bytes?
+  createdAt   DateTime @default(now())
+
+  @@index([ownerId, kind])
+}
+
+/// Every status change, setting change and payment reversal writes exactly one entry.
+/// Never contains client names, emails or amounts in free text.
+model AuditLog {
+  id        String   @id @default(uuid())
+  ownerId   String
+  entity    String
+  entityId  String
+  action    String
+  detail    Json?
+  createdAt DateTime @default(now())
+
+  @@index([ownerId, entity, entityId])
+  @@index([ownerId, createdAt])
+}
+
+/// Failed sign-in attempts, kept in the database so the limit holds across serverless instances.
+/// `key` is "acct:<email>" or "ip:<address>". Never read back to the user, never contains a password.
+model AuthAttempt {
+  id        String   @id @default(uuid())
+  key       String
+  createdAt DateTime @default(now())
+
+  @@index([key, createdAt])
+}

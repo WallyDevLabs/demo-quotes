@@ -1,0 +1,12 @@
+node_modules
+.env
+*.db
+dist
+.next
+.next-e2e
+*.tsbuildinfo
+next-env.d.ts
+.local
+backups
+test-results
+playwright-report

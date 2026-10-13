@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: 248 250 252;
+  --surface: 255 255 255;
+  --recessed: 241 245 249;
+  --line: 226 232 240;
+  --ink: 15 23 42;
+  --ink-muted: 100 116 139;
+  --primary: 79 70 229;
+  --primary-hover: 67 56 202;
+  --primary-soft: 226 223 255;
+  --primary-ink: 51 37 205;
+  --profit: 13 148 136;
+  --profit-soft: 204 251 241;
+  --profit-ink: 15 118 110;
+  --caution: 217 119 6;
+  --caution-soft: 254 243 199;
+  --caution-ink: 180 83 9;
+  --cost: 225 29 72;
+  --cost-soft: 255 228 230;
+  --cost-ink: 190 18 60;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: 11 15 26;
+  --surface: 19 27 46;
+  --recessed: 27 36 58;
+  --line: 48 58 84;
+  --ink: 238 240 255;
+  --ink-muted: 150 160 185;
+  --primary: 129 140 248;
+  --primary-hover: 165 172 252;
+  --primary-soft: 40 40 94;
+  --primary-ink: 199 203 255;
+  --profit: 45 212 191;
+  --profit-soft: 12 60 56;
+  --profit-ink: 94 234 212;
+  --caution: 251 146 60;
+  --caution-soft: 70 44 12;
+  --caution-ink: 253 186 116;
+  --cost: 251 113 133;
+  --cost-soft: 76 20 36;
+  --cost-ink: 253 164 175;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: rgb(var(--canvas));
+  color: rgb(var(--ink));
+}
+
+.money {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+input,
+select,
+textarea {
+  color: rgb(var(--ink));
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 2px;
+}
+
+@keyframes pulse-soft {
+  50% {
+    opacity: 0.5;
+  }
+}
+.skeleton {
+  background: rgb(var(--recessed));
+  border-radius: 0.375rem;
+  animation: pulse-soft 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"primary-fixed-dim":"#c3c0ff","background":"#faf8ff","error-container":"#ffdad6","surface-container-highest":"#dae2fd","surface-bright":"#faf8ff","primary-fixed":"#e2dfff","primary-container":"#4f46e5","on-error-container":"#93000a","on-error":"#ffffff","on-secondary-fixed":"#00201d","on-primary-fixed":"#0f0069","tertiary-fixed":"#ffdcc3","on-primary":"#ffffff","primary":"#3525cd","on-background":"#131b2e","secondary-fixed-dim":"#6bd8cb","secondary":"#006a61","surface-container-lowest":"#ffffff","on-secondary-container":"#006f66","surface-container-low":"#f2f3ff","on-tertiary":"#ffffff","tertiary-fixed-dim":"#ffb77d","outline-variant":"#c7c4d8","on-primary-container":"#dad7ff","on-surface-variant":"#464555","surface-dim":"#d2d9f4","on-primary-fixed-variant":"#3323cc","on-surface":"#131b2e","on-tertiary-container":"#ffd2b1","surface":"#faf8ff","inverse-on-surface":"#eef0ff","inverse-primary":"#c3c0ff","on-secondary":"#ffffff","surface-tint":"#4d44e3","on-secondary-fixed-variant":"#005049","secondary-container":"#86f2e4","tertiary-container":"#934e00","surface-container-high":"#e2e7ff","surface-container":"#eaedff","on-tertiary-fixed-variant":"#6e3900","on-tertiary-fixed":"#2f1500","error":"#ba1a1a","tertiary":"#703a00","inverse-surface":"#283044","surface-variant":"#dae2fd","secondary-fixed":"#89f5e7","outline":"#777587"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-md":"1rem","space-lg":"1.5rem","gutter":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","margin":"2rem","margin-mobile":"1rem","space-xl":"2.5rem"},"fontFamily":{"mono-metric-lg":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"mono-metric-xl-mobile":["JetBrains Mono"],"label-caps":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"mono-metric-xl":["JetBrains Mono"],"mono-body":["JetBrains Mono"],"mono-caption":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"mono-metric-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-hero":["40px",{"lineHeight":"48px","letterSpacing":"-0.025em","fontWeight":"700"}],"display-hero-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"600"}],"mono-metric-xl-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"mono-metric-xl":["32px",{"lineHeight":"40px","letterSpacing":"-0.03em","fontWeight":"600"}],"mono-body":["13px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"500"}],"mono-caption":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-center gap-space-sm"><div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">terminal</span></div><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">CodeQuote</span><span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant mt-space-xs">Freelance Financial Engine</span></div></div><div class="px-space-md py-space-xs"><div class="px-space-sm py-space-xs rounded-lg bg-surface-container-high flex items-center justify-between text-on-surface-variant"><span class="font-mono-caption text-mono-caption uppercase tracking-wider text-on-surface-variant">Project Workspace</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">unfold_more</span></div><div class="mt-space-xs px-space-sm py-space-xs bg-surface-container-lowest rounded-lg shadow-sm flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-body-md text-body-md text-on-surface truncate font-semibold">FinTech Mobile App &amp; API</span></div></div><nav class="flex-1 px-space-md py-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="financial-overview" href="#"><span class="font-body-md text-body-md">Financial Overview</span><span class="font-mono-caption text-mono-caption px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">Live</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="calculator" href="#"><span class="font-body-md text-body-md">Estimator &amp; Calculator</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="projects" href="#"><span class="font-body-md text-body-md">Projects</span><span class="font-mono-caption text-mono-caption px-space-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">6 active</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="quotes" href="#"><span class="font-body-md text-body-md">Quotations</span><span class="font-mono-caption text-mono-caption px-space-xs py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold">2 pending</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="invoices" href="#"><span class="font-body-md text-body-md">Invoices &amp; Payments</span><span class="font-mono-caption text-mono-caption px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">R42,500 due</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="clients" href="#"><span class="font-body-md text-body-md">Clients</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="rates" href="#"><span class="font-body-md text-body-md">Rates &amp; Catalogue</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="font-body-md text-body-md">Business Settings</span></a></nav></div><div class="p-space-md bg-surface-container-lowest m-space-md rounded-xl shadow-sm space-y-space-xs"><div class="flex items-center justify-between text-on-surface-variant"><span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Rate Presets</span><span class="material-symbols-outlined text-[14px]">bolt</span></div><div class="font-mono-caption text-mono-caption text-on-surface-variant space-y-0.5"><div class="flex justify-between"><span class="text-on-surface-variant">Dev:</span><span class="text-on-surface font-semibold">R850/h</span></div><div class="flex justify-between"><span class="text-on-surface-variant">Design:</span><span class="text-on-surface font-semibold">R750/h</span></div><div class="flex justify-between"><span class="text-on-surface-variant">QA:</span><span class="text-on-surface font-semibold">R550/h</span></div></div><div class="pt-space-xs mt-space-xs flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption"><div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>v2.4 · Decimal.js</span></div><span class="material-symbols-outlined text-[14px] text-secondary">cloud_done</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-[16px] text-primary">account_balance_wallet</span><span class="font-mono-body text-mono-body text-on-surface font-semibold">ZAR (South Africa · 15% VAT)</span></div><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold">Online · Engine Ready</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-low text-on-surface"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">layers</span><span class="font-body-md text-body-md font-medium text-on-surface">FinTech Mobile App &amp; API</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span></div><div class="flex items-center gap-space-sm"><button class="w-9 h-9 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-container-highest transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-body-md text-body-md text-on-surface font-semibold leading-tight">Devon K.</div><div class="font-label-caps text-label-caps text-on-surface-variant">Senior Full-Stack Engineer</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="relative pt-16 bg-surface w-full px-space-lg flex-1"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Context Header & Actions -->
+<div class="py-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-mono-caption text-mono-caption">
+<span>Settings &amp; Engine Rules</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Rates Master Catalogue &amp; Fiscal Configuration</span>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Rates &amp; Master Catalogue / Engine Configuration</h1>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          ACTIVE ENGINE v2.4
+        </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+        Authoritative pricing rules, engineering discipline rates, SARS tax compliance, and complexity weights backing Decimal.js calculations.
+      </p>
+</div>
+<!-- Header Actions -->
+<div class="flex items-center gap-space-xs flex-wrap self-start md:self-auto">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-md text-body-md font-medium transition-all flex items-center gap-space-xs shadow-sm" id="export-json-btn">
+<span class="material-symbols-outlined text-[18px] text-primary">data_object</span>
+<span>Export Config Schema (JSON)</span>
+</button>
+<button class="px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-body-md text-body-md font-medium transition-all">
+        Discard Changes
+      </button>
+<button class="px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-md text-body-md font-semibold transition-all flex items-center gap-space-xs shadow-md" id="save-rules-btn">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Save Engine Rules</span>
+<span class="ml-1 px-1.5 py-0.2 rounded bg-on-primary/20 text-on-primary font-mono-caption text-mono-caption">Syncs Engine</span>
+</button>
+</div>
+</div>
+<!-- 1. TOP STATS / FISCAL PRESETS RIBBON -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mt-space-sm">
+<!-- Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Base Dev Rate Floor</span>
+<span class="material-symbols-outlined text-[20px] text-primary">engineering</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-xl text-mono-metric-xl text-on-surface">R 850.00 <span class="font-mono-body text-mono-body text-on-surface-variant">/ hr</span></div>
+</div>
+<div class="flex items-center gap-1 text-secondary font-mono-caption text-mono-caption font-semibold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12.0% YoY baseline</span>
+<span class="text-on-surface-variant ml-auto font-normal">Min ZAR floor</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-secondary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Blended Target Margin</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">pie_chart</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-xl text-mono-metric-xl text-on-surface">35.0% – 40.0%</div>
+</div>
+<div class="flex items-center justify-between font-mono-caption text-mono-caption text-on-surface-variant">
+<span>Target Realization</span>
+<span class="text-on-surface font-semibold">R 1,500.00 / hr billable</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Statutory VAT Status</span>
+<span class="material-symbols-outlined text-[20px] text-primary">gavel</span>
+</div>
+<div class="my-space-xs">
+<div class="font-mono-metric-xl text-mono-metric-xl text-on-surface">15.00% <span class="font-mono-body text-mono-body text-secondary font-semibold">Standard</span></div>
+</div>
+<div class="flex items-center justify-between font-mono-caption text-mono-caption text-on-surface-variant">
+<span class="truncate">SARS VAT Act 89</span>
+<span class="text-primary font-mono font-semibold">PIN: TC-991283-Z</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-16 h-16 rounded-full bg-secondary-container/20 pointer-events-none"></div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Engine Math Precision</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">calculate</span>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-md text-headline-md text-on-surface truncate font-semibold">Decimal.js</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-mono-caption text-mono-caption">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="truncate font-semibold text-on-surface">Zero float drift</span>
+<span class="ml-auto font-mono text-secondary">28 dec precision</span>
+</div>
+</div>
+</div>
+<!-- 2. CORE SECTION A: Discipline & Role Hourly Rates Matrix -->
+<div class="mt-space-lg rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">tune</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Discipline &amp; Role Hourly Rates Matrix</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Constitutes base multipliers for Calculator and formal Proposal line-item creation. Real-time gross margin recalculation on delta.
+        </p>
+</div>
+<!-- Controls Toolbar -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<!-- Currency Preview Pill -->
+<div class="flex items-center bg-surface-container-high rounded-lg p-1 text-on-surface text-body-sm font-body-sm">
+<button class="px-2.5 py-1 rounded-md bg-surface-container-lowest shadow-xs font-semibold text-primary">ZAR (R)</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface">USD ($1=R18.42)</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface">EUR (€1=R19.95)</button>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-mono-caption text-mono-caption font-semibold flex items-center gap-1 transition-colors" id="inflation-btn">
+<span class="material-symbols-outlined text-[16px] text-tertiary">percent</span>
+<span>Apply +5% Annual Surcharge</span>
+</button>
+<button class="px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-md text-body-md font-semibold flex items-center gap-1 transition-colors shadow-sm" id="add-role-btn">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Custom Discipline</span>
+</button>
+</div>
+</div>
+<!-- Rates Table Container -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-low">
+<table class="w-full text-left border-collapse" id="rates-table">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-caps text-label-caps uppercase tracking-wider">
+<th class="py-3 px-4">Role / Discipline</th>
+<th class="py-3 px-4">Experience Tier</th>
+<th class="py-3 px-4 text-right">Internal Cost Floor (ZAR/h)</th>
+<th class="py-3 px-4 text-right">Client Billable Rate (ZAR/h)</th>
+<th class="py-3 px-4 text-right">Target Margin (%)</th>
+<th class="py-3 px-4 text-center">Engine Active</th>
+<th class="py-3 px-4 text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-highest/40 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Principal Software Architect</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Staff / L6+ (10+ Yrs)</span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">
+              R 750.00
+            </td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+<input class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-xs" type="text" value="1,100.00"/>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+                31.8%
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors" title="Lock Rate"><span class="material-symbols-outlined text-[18px]">lock</span></button>
+<button class="p-1 hover:text-error transition-colors" title="Remove"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-highest/40 transition-colors bg-surface-container-lowest/70">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Senior Full-Stack Engineer (Core)</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps uppercase">Primary</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Senior L5 (6-8 Yrs)</span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">
+              R 550.00
+            </td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+<input class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-xs" type="text" value="850.00"/>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+                35.3%
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors" title="Lock Rate"><span class="material-symbols-outlined text-[18px]">lock</span></button>
+<button class="p-1 hover:text-error transition-colors" title="Remove"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-highest/40 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-dim"></span>
+<span>UI/UX Design System Specialist</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Senior Lead (5+ Yrs)</span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">
+              R 500.00
+            </td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+<input class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-xs" type="text" value="750.00"/>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+                33.3%
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">lock_open</span></button>
+<button class="p-1 hover:text-error transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-highest/40 transition-colors bg-surface-container-lowest/70">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-surface-dim"></span>
+<span>QA &amp; Automated Testing Engineer</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Mid-Senior (4+ Yrs)</span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">
+              R 380.00
+            </td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+<input class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-xs" type="text" value="550.00"/>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+                30.9%
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">lock_open</span></button>
+<button class="p-1 hover:text-error transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-highest/40 transition-colors">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>DevOps &amp; Cloud Infrastructure</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Senior SRE (6+ Yrs)</span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">
+              R 700.00
+            </td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+<input class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-xs" type="text" value="1,050.00"/>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+                33.3%
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">lock</span></button>
+<button class="p-1 hover:text-error transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-highest/40 transition-colors bg-surface-container-lowest/70">
+<td class="py-3.5 px-4 font-semibold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Strategic Tech Advisory / Consultation</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Fractional CTO / Principal</span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">
+              R 800.00
+            </td>
+<td class="py-3.5 px-4 text-right">
+<div class="inline-flex items-center justify-end gap-1">
+<span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+<input class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-xs" type="text" value="1,450.00"/>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+                44.8%
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">lock</span></button>
+<button class="p-1 hover:text-error transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footnote Note -->
+<div class="flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption pt-space-xs">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span>Internal Cost Floor includes infrastructure depreciation, healthcare, local SARB retirement provision, and non-billable overhead.</span>
+</div>
+<span class="text-secondary font-semibold">Live Realization Factor: 1.54×</span>
+</div>
+</div>
+<!-- 2-COLUMN SECTION: B & C -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mt-space-lg">
+<!-- CORE SECTION B: Complexity Multipliers & Surcharges (7 Cols) -->
+<div class="lg:col-span-7 rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">speed</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Complexity Multipliers &amp; Cadence Rules</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Mathematical scale tiers injected into work breakdown structures (WBS) before line-item duration estimation.
+        </p>
+</div>
+<!-- Multiplier Stack -->
+<div class="space-y-space-sm">
+<!-- Tier 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start justify-between gap-space-md hover:bg-surface-container-high/60 transition-colors">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Basic / MVP Baseline</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface font-mono-caption text-mono-caption">1.00× (Neutral)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Standard greenfield CRUD, minimal third-party integrations, straightforward SQL schemas, responsive mobile views.
+            </p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<input class="w-20 text-center font-mono-body text-mono-body font-semibold px-2 py-1.5 rounded bg-surface-container-lowest text-on-surface shadow-xs focus:ring-1 focus:ring-primary focus:outline-none" step="0.05" type="number" value="1.00"/>
+<span class="font-mono-body text-mono-body text-on-surface-variant">×</span>
+</div>
+</div>
+<!-- Tier 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start justify-between gap-space-md hover:bg-surface-container-high/60 transition-colors">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Intermediate Stack</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface font-mono-caption text-mono-caption">1.20×</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              OAuth / SSO authentication, South African payment gateways (Ozow/Peach), multi-state real-time UI dashboards.
+            </p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<input class="w-20 text-center font-mono-body text-mono-body font-semibold px-2 py-1.5 rounded bg-surface-container-lowest text-on-surface shadow-xs focus:ring-1 focus:ring-primary focus:outline-none" step="0.05" type="number" value="1.20"/>
+<span class="font-mono-body text-mono-body text-on-surface-variant">×</span>
+</div>
+</div>
+<!-- Tier 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start justify-between gap-space-md hover:bg-surface-container-high/60 transition-colors">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Advanced Concurrency</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-fixed text-on-primary-fixed-variant font-mono-caption text-mono-caption font-semibold">1.45×</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              High throughput message queues (BullMQ/Kafka), real-time WebSockets, distributed background workers, granular RBAC.
+            </p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<input class="w-20 text-center font-mono-body text-mono-body font-semibold px-2 py-1.5 rounded bg-surface-container-lowest text-on-surface shadow-xs focus:ring-1 focus:ring-primary focus:outline-none" step="0.05" type="number" value="1.45"/>
+<span class="font-mono-body text-mono-body text-on-surface-variant">×</span>
+</div>
+</div>
+<!-- Tier 4 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start justify-between gap-space-md hover:bg-surface-container-high/60 transition-colors">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Enterprise Mission-Critical</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-mono-caption text-mono-caption font-semibold">1.80×</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Financial ledger immutability, POPIA &amp; SOC2 compliance protocols, zero-downtime DB migrations, rigorous SLA penalties.
+            </p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<input class="w-20 text-center font-mono-body text-mono-body font-semibold px-2 py-1.5 rounded bg-surface-container-lowest text-on-surface shadow-xs focus:ring-1 focus:ring-primary focus:outline-none" step="0.05" type="number" value="1.80"/>
+<span class="font-mono-body text-mono-body text-on-surface-variant">×</span>
+</div>
+</div>
+</div>
+<!-- Surcharge Configuration Strip -->
+<div class="pt-space-sm flex flex-col gap-space-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-surface-variant">Cadence &amp; Ambiguity Surcharges</span>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<!-- Surcharge 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Rush Expedited</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">bolt</span>
+</div>
+<div class="my-2 flex items-center justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-tertiary">+20.0%</span>
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container" type="checkbox"/>
+</div>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Applied to sprints &lt;10 days</span>
+</div>
+<!-- Surcharge 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Weekend / Hotfix</span>
+<span class="material-symbols-outlined text-[16px] text-error">emergency</span>
+</div>
+<div class="my-2 flex items-center justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-error">1.50×</span>
+<input checked="" class="w-4 h-4 text-primary rounded accent-primary-container" type="checkbox"/>
+</div>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">SLA out-of-hours intervention</span>
+</div>
+<!-- Surcharge 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Discovery Buffer</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">shield</span>
+</div>
+<div class="my-2 flex items-center justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-secondary">15.0%</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">Auto</span>
+</div>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Default scope contingency buffer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CORE SECTION C: South African SARS Tax, Legal & Business Credentials (5 Cols) -->
+<div class="lg:col-span-5 rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">assured_workload</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">SARS Tax &amp; Legal Profile</h2>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Verified Active
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Injected directly into Section 20 South African Tax Invoices, formal proposals, and SARB compliance headers.
+        </p>
+<!-- Form fields -->
+<div class="mt-space-md space-y-3">
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Registered Legal Entity</label>
+<input class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md font-semibold focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="Devon K. Engineering (Pty) Ltd"/>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">SARS VAT Reg No.</label>
+<div class="relative">
+<input class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-mono-body text-mono-body font-semibold focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="4920281902"/>
+<span class="absolute right-2 top-2 material-symbols-outlined text-[16px] text-secondary">verified</span>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Tax Clearance PIN</label>
+<input class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-mono-body text-mono-body font-semibold focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="TC-991283-Z"/>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Physical Business Seat</label>
+<input class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="Sandton City Precinct, 5th Floor Atrium, Sandton, Johannesburg 2196"/>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Default Terms</label>
+<select class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md font-medium focus:ring-1 focus:ring-primary focus:outline-none cursor-pointer">
+<option selected="">Net 14 Days</option>
+<option>Net 7 Days</option>
+<option>Net 30 Days</option>
+<option>Due Upon Receipt</option>
+</select>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Statutory VAT</label>
+<div class="flex items-center justify-between px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface">
+<span class="font-mono-body text-mono-body font-bold">15.00%</span>
+<span class="font-mono-caption text-mono-caption text-secondary font-semibold">Standard Output</span>
+</div>
+</div>
+</div>
+<!-- Settlement Box -->
+<div class="p-3 rounded-lg bg-surface-container border-none flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-bold">Primary Settlement Coordinates</span>
+<span class="font-mono-caption text-mono-caption px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface">FNB Enterprise</span>
+</div>
+<div class="font-mono-caption text-mono-caption text-on-surface-variant space-y-0.5 mt-1">
+<div class="flex justify-between"><span class="text-on-surface-variant">Account:</span> <span class="text-on-surface font-semibold font-mono">6289 1048 291</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">Branch Code:</span> <span class="text-on-surface font-semibold font-mono">250655 (Sandton Enterprise)</span></div>
+<div class="flex justify-between"><span class="text-on-surface-variant">SWIFT:</span> <span class="text-on-surface font-semibold font-mono">FIRNZAJJ</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Compliance Check Notice -->
+<div class="p-2.5 rounded-lg bg-secondary-container/30 flex items-center gap-2 text-on-secondary-container font-mono-caption text-mono-caption">
+<span class="material-symbols-outlined text-[18px] text-secondary">gavel</span>
+<span>Valid through 2026-03-31 (SARS eFiling automated token active)</span>
+</div>
+</div>
+</div>
+<!-- 3. CORE SECTION D: Pre-configured Service Packages & Retainer Catalog -->
+<div class="mt-space-lg rounded-xl bg-surface-container-lowest shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary">inventory_2</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Pre-Configured Service Packages &amp; Retainer Catalogue</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Standardized engagement modules easily pulled into Quotations or recurring Monthly Retainer billing schedules.
+        </p>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-md text-body-md font-semibold flex items-center gap-1 transition-colors self-start sm:self-auto">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span>New Package Blueprint</span>
+</button>
+</div>
+<!-- 4 Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Package 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-mono-caption text-mono-caption font-bold">Monthly Retainer</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary transition-colors">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Standard Tier-2 SLA Support</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            8 hours dedicated priority incident response, automated security patch cycles, Docker image upgrades, and weekly health diagnostics.
+          </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface">R 6,800.00</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">/ month</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption">
+<span>Effective Rate:</span>
+<span class="font-semibold text-on-surface">R 850.00 / hr</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<button class="flex-1 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-primary font-body-sm text-body-sm font-semibold transition-colors shadow-xs">Edit Rules</button>
+<button class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-secondary font-body-sm text-body-sm shadow-xs"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+</div>
+</div>
+</div>
+<!-- Package 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">Turnkey Fixed</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-secondary transition-colors">payments</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">ZA Payment Gateway Integration</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Production integration for Ozow, Peach Payments or PayFast. Complete with webhook cryptographic validation, idempotency, and automated ledger sync.
+          </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface">R 18,500.00</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Fixed Bundle</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption">
+<span>Allocated Effort:</span>
+<span class="font-semibold text-on-surface">22 Eng Hours</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<button class="flex-1 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-primary font-body-sm text-body-sm font-semibold transition-colors shadow-xs">Edit Rules</button>
+<button class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-secondary font-body-sm text-body-sm shadow-xs"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+</div>
+</div>
+</div>
+<!-- Package 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-mono-caption text-mono-caption font-bold">Compliance Sprint</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-tertiary transition-colors">privacy_tip</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">POPIA Compliance &amp; Privacy Audit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            South African data protection engineering: field-level encryption at rest, consent ledger, automated subject access request (SAR) pipelines, purge workers.
+          </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface">R 14,000.00</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">Fixed Audit</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption">
+<span>Allocated Effort:</span>
+<span class="font-semibold text-on-surface">16 Eng Hours</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<button class="flex-1 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-primary font-body-sm text-body-sm font-semibold transition-colors shadow-xs">Edit Rules</button>
+<button class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-secondary font-body-sm text-body-sm shadow-xs"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+</div>
+</div>
+</div>
+<!-- Package 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 transition-all flex flex-col justify-between group">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">Pass-Through</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-primary transition-colors">cloud_sync</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-1">Cloud Infrastructure Provisioning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            AWS Cape Town (af-south-1) / Supabase setup. Strict 0% markup passthrough ensuring fiduciary transparency for enterprise clients.
+          </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<span class="font-mono-metric-lg text-mono-metric-lg text-on-surface">0.0% Markup</span>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">At-Cost</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-caption text-mono-caption">
+<span>SARB Currency Rule:</span>
+<span class="font-semibold text-on-surface">ZAR Settled</span>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<button class="flex-1 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-primary font-body-sm text-body-sm font-semibold transition-colors shadow-xs">Configure Rules</button>
+<button class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface hover:text-secondary font-body-sm text-body-sm shadow-xs"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. FOOTER AUDIT & ENGINE VALIDATION BAR -->
+<div class="mt-space-lg rounded-xl bg-surface-container-high p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-xs">
+<span class="material-symbols-outlined text-[20px]">fingerprint</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Audit Trail Hash: #4F89E-SARS-2025</span>
+<span class="px-2 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">Mathematical Lock Active</span>
+</div>
+<span class="font-mono-caption text-mono-caption text-on-surface-variant">
+          Last modified 24 Oct 2025 at 16:45 SAST by Devon K. · All formulas locked to Section 20 VAT Act &amp; Decimal.js specifications.
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end sm:self-auto">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-bright text-error font-body-md text-body-md font-medium transition-colors flex items-center gap-1 shadow-xs" id="reset-baseline-btn">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>Reset to Factory Baseline</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for the configuration matrix
+  document.getElementById('inflation-btn')?.addEventListener('click', function() {
+    const inputs = document.querySelectorAll('#rates-table input[type="text"]');
+    inputs.forEach(input => {
+      let val = parseFloat(input.value.replace(/,/g, ''));
+      if (!isNaN(val)) {
+        let updated = (val * 1.05).toFixed(2);
+        input.value = Number(updated).toLocaleString('en-US', { minimumFractionDigits: 2 });
+      }
+    });
+    alert('Applied +5.0% Inflation Surcharge to all active billable rates across the engine.');
+  });
+
+  document.getElementById('save-rules-btn')?.addEventListener('click', function() {
+    const btn = this;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Saving to Engine...</span>';
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span><span>Engine Synced!</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
+    }, 600);
+  });
+
+  document.getElementById('export-json-btn')?.addEventListener('click', function() {
+    const schema = {
+      version: "2.4.0",
+      currency: "ZAR",
+      vat_rate: 0.15,
+      legal_entity: "Devon K. Engineering (Pty) Ltd",
+      tax_pin: "TC-991283-Z",
+      base_rates: {
+        architect: 1100.00,
+        senior_engineer: 850.00,
+        ui_designer: 750.00,
+        qa_engineer: 550.00,
+        devops: 1050.00,
+        tech_advisory: 1450.00
+      },
+      multipliers: {
+        mvp: 1.0,
+        intermediate: 1.2,
+        advanced: 1.45,
+        enterprise: 1.8
+      }
+    };
+    const blob = new Blob([JSON.stringify(schema, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "CodeQuote_Fiscal_Schema_2025.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('add-role-btn')?.addEventListener('click', function() {
+    const tableBody = document.querySelector('#rates-table tbody');
+    if (!tableBody) return;
+    const newRow = document.createElement('tr');
+    newRow.className = "hover:bg-surface-container-highest/40 transition-colors bg-surface-container-lowest";
+    newRow.innerHTML = `
+      <td class="py-3.5 px-4 font-semibold text-on-surface">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-primary"></span>
+          <input type="text" placeholder="New Role Title" value="Specialist Engineer" class="px-2 py-1 rounded bg-surface-container text-on-surface font-semibold text-sm focus:outline-none" />
+        </div>
+      </td>
+      <td class="py-3.5 px-4">
+        <span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-caption text-mono-caption">Custom Tier</span>
+      </td>
+      <td class="py-3.5 px-4 text-right font-mono-body text-mono-body text-on-surface-variant">R 600.00</td>
+      <td class="py-3.5 px-4 text-right">
+        <div class="inline-flex items-center justify-end gap-1">
+          <span class="font-mono-body text-mono-body text-on-surface-variant">R</span>
+          <input type="text" value="950.00" class="w-28 text-right font-mono-body text-mono-body font-semibold px-2 py-1 rounded bg-surface-container-low text-on-surface focus:outline-none shadow-xs" />
+        </div>
+      </td>
+      <td class="py-3.5 px-4 text-right">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-mono-caption text-mono-caption font-bold">36.8%</span>
+      </td>
+      <td class="py-3.5 px-4 text-center">
+        <input type="checkbox" checked class="w-4 h-4 text-primary rounded accent-primary-container cursor-pointer" />
+      </td>
+      <td class="py-3.5 px-4 text-center">
+        <button onclick="this.closest('tr').remove()" class="p-1 text-error hover:text-error-container transition-colors"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+      </td>
+    `;
+    tableBody.appendChild(newRow);
+  });
+</script></main></div></body></html>
