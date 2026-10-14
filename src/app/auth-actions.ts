@@ -19,6 +19,7 @@ import {
 import { cookieOptions, DEVICE_COOKIE, deviceCookieOptions, SESSION_COOKIE, signSession, type SessionStage } from "@/server/auth/session";
 import { db } from "@/server/db";
 import { runAction, ServiceError, type ActionResult } from "@/server/errors";
+import { isDemo } from "@/server/demo";
 import { requireOwnerId } from "@/server/owner";
 
 /**
@@ -137,6 +138,7 @@ const setupSchema = z.object({ email: z.string(), password: z.string(), confirm:
 
 export async function setupAction(input: z.input<typeof setupSchema>): Promise<ActionResult<{ redirectTo: string }>> {
   return runAction(async () => {
+    if (isDemo()) throw new ServiceError("Account setup is switched off in the demo.");
     const v = setupSchema.parse(input);
     if (await ownerExists()) throw new ServiceError("An owner account already exists. Sign in instead.");
     if (v.password !== v.confirm) throw new ServiceError("Some fields need attention.", [{ path: "confirm", message: "The two passwords do not match" }]);

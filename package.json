@@ -14,6 +14,7 @@
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
     "db:local": "node scripts/local-db.mjs",
+    "seed:demo": "vite-node --config vitest.config.ts scripts/seed-demo.ts",
     "test:db": "node scripts/prepare-test-db.mjs",
     "backup": "node scripts/backup.mjs",
     "backup:verify": "node scripts/verify-backup.mjs",

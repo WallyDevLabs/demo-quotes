@@ -18,6 +18,10 @@ const json = (status: number, error: string) =>
 
 export async function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
+  // Demo mode: no sign-in. Send the sign-in and setup pages to the app; everything else passes through.
+  if (process.env.DEMO_MODE === "true") {
+    return pathname === "/login" || pathname.startsWith("/setup") ? NextResponse.redirect(new URL("/", req.url)) : NextResponse.next();
+  }
   const claims = await verifySession(req.cookies.get(SESSION_COOKIE)?.value);
   const isRead = req.method === "GET" || req.method === "HEAD";
   const go = (to: string) => NextResponse.redirect(new URL(to, req.url));

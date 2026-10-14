@@ -10,7 +10,7 @@ import { ThemeToggle } from "./theme";
 const bars = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", "aria-hidden": true } as const;
 
 /** Phone layout: a top bar with a burger button that opens the navigation as a drawer. Hidden from `md` up, where the sidebar shows. */
-export function MobileNav() {
+export function MobileNav({ demo = false }: { demo?: boolean }) {
   const [open, setOpen] = useState(false);
   const path = usePathname();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -85,12 +85,14 @@ export function MobileNav() {
               </button>
             </div>
             <NavLinks />
-            <div className="mt-auto flex flex-col gap-1 border-t border-line p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
-              <Link href="/account" className="rounded px-3 py-3 text-sm font-semibold text-ink-muted hover:bg-recessed hover:text-ink">
-                Account
-              </Link>
-              <SignOutButton className="min-h-11 w-full !justify-start px-3 py-3" />
-            </div>
+            {!demo && (
+              <div className="mt-auto flex flex-col gap-1 border-t border-line p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+                <Link href="/account" className="rounded px-3 py-3 text-sm font-semibold text-ink-muted hover:bg-recessed hover:text-ink">
+                  Account
+                </Link>
+                <SignOutButton className="min-h-11 w-full !justify-start px-3 py-3" />
+              </div>
+            )}
           </aside>
         </div>
       )}

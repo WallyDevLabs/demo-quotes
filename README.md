@@ -136,3 +136,11 @@ Two layers, because records that are the business need both:
 **`npm run backup:verify` is the restore test.** An untested backup does not count, so it restores the dump into a scratch database and checks that every table matches the live database row for row (by fingerprint), every stored PDF still matches its recorded SHA-256, the immutability triggers came back and still refuse edits, and the migration history is intact. It exits with an error if anything differs. Run it while the app is idle. It was run for this milestone against the local database: 20 tables and over 11,000 rows, identical.
 
 To restore for real: create an empty database, then `pg_restore --no-owner -d <new database url> <backup file>`, point `DATABASE_URL` at it, and check the dashboard and a recent invoice.
+
+## Demo mode (no sign-in)
+
+Set `DEMO_MODE=true` to skip authentication so anyone can try the app. Every visitor shares one demo workspace, `/login` and `/setup` redirect to the dashboard, and `AUTH_SECRET` / `SETUP_TOKEN` are not needed. Leave it unset for the normal password + two-factor sign-in.
+
+### Sample data
+
+`npm run seed:demo` fills the demo workspace with four clients, projects, estimates, quotations (draft, sent, accepted, rejected and expired) and invoices (paid, part-paid, overdue), all dated relative to today. It runs against whatever `DATABASE_URL` points at, and skips if the workspace already has clients. Add `-- --reset` to wipe every business table first (use it only on a database that exists purely for the demo), for example to restore a hosted demo on a schedule.

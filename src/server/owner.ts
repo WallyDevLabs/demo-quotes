@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { cache } from "react";
 import { authenticate, type ActiveSession } from "./auth/service";
+import { DEMO_EMAIL, demoOwnerId, isDemo } from "./demo";
 import { SESSION_COOKIE } from "./auth/session";
 
 /**
@@ -10,6 +11,7 @@ import { SESSION_COOKIE } from "./auth/session";
  * Without a valid full session the visitor is sent to sign in; nothing is served.
  */
 export async function requireOwnerId(): Promise<string> {
+  if (isDemo()) return demoOwnerId();
   const s = await getSession();
   if (!s || s.stage !== "full") redirect("/login");
   return s.userId;
@@ -23,6 +25,7 @@ export async function requireOwnerId(): Promise<string> {
 export const authenticateOnce = cache((token: string | undefined): Promise<ActiveSession | null> => authenticate(token));
 
 export async function getSession(): Promise<ActiveSession | null> {
+  if (isDemo()) return { userId: await demoOwnerId(), email: DEMO_EMAIL, stage: "full" };
   const store = await cookies();
   return authenticateOnce(store.get(SESSION_COOKIE)?.value);
 }

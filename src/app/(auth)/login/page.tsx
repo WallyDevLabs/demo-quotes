@@ -4,11 +4,13 @@ import { LoginForm } from "@/components/auth-forms";
 import { pinStatus } from "@/server/auth/pin";
 import { ownerExists } from "@/server/auth/service";
 import { DEVICE_COOKIE } from "@/server/auth/session";
+import { isDemo } from "@/server/demo";
 import { getSession } from "@/server/owner";
 
 export const metadata = { title: "Sign in" };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+  if (isDemo()) redirect("/");
   if (!(await ownerExists())) redirect("/setup");
   const s = await getSession();
   if (s?.stage === "full") redirect("/");

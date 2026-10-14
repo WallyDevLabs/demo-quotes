@@ -2,11 +2,20 @@ import { listDevicesAction } from "@/app/auth-actions";
 import { AccountPanel, DevicesCard } from "@/components/auth-forms";
 import { Badge, Banner, Card } from "@/components/ui";
 import { db } from "@/server/db";
+import { isDemo } from "@/server/demo";
 import { getSession, requireOwnerId } from "@/server/owner";
 
 export const metadata = { title: "Account" };
 
 export default async function AccountPage() {
+  if (isDemo()) {
+    return (
+      <div className="space-y-4">
+        <h1 className="text-2xl font-semibold tracking-tight">Account</h1>
+        <Banner tone="caution">This is a public demo, so there is no sign-in. Everyone shares the same sample workspace.</Banner>
+      </div>
+    );
+  }
   const userId = await requireOwnerId();
   const [session, user] = await Promise.all([getSession(), db.user.findUniqueOrThrow({ where: { id: userId }, select: { recoveryCodeHashes: true, totpEnabledAt: true, pinHash: true } })]);
   const left = user.recoveryCodeHashes.length;

@@ -2,10 +2,12 @@ import { redirect } from "next/navigation";
 import { SetupForm } from "@/components/auth-forms";
 import { Banner } from "@/components/ui";
 import { ownerExists } from "@/server/auth/service";
+import { isDemo } from "@/server/demo";
 
 export const metadata = { title: "Create your account" };
 
 export default async function SetupPage() {
+  if (isDemo()) redirect("/");
   if (await ownerExists()) redirect("/login");
   const prod = process.env.NODE_ENV === "production";
   const disabled = prod && !process.env.SETUP_TOKEN;
