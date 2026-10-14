@@ -4,8 +4,9 @@ A pricing, quoting and invoicing tool for one freelance developer invoicing in S
 
 | | |
 |---|---|
-| **Live app** | https://code-quotes-src.vercel.app/ |
-| **Source** | https://github.com/WallyDevLab/code-quotes (branch `main`) |
+| **Live demo** | https://demo-quotes.vercel.app/ (no sign-in, shared sample data; see [Demo mode](#demo-mode-portfolio-deployment)) |
+| **Source** | https://github.com/WallyDevLabs/demo-quotes (branch `main`) |
+
 | **Hosting** | Vercel (app) and Supabase Postgres, West EU (Ireland) |
 | **Stack** | Next.js 15 (App Router), TypeScript, Prisma, PostgreSQL, Tailwind, Zod, decimal.js, React PDF, Vitest, Playwright |
 
@@ -203,7 +204,7 @@ Vercel's build machines cannot reach a database on your computer. A `localhost` 
    ```
 
    Bash: `DATABASE_URL="<hosted connection string>" npm run seed:demo`
-6. **Check it:** the site opens on the dashboard with no sign-in, and `/quotations` and `/invoices` list the sample documents.
+6. **Check it:** https://demo-quotes.vercel.app/ opens on the dashboard with no sign-in, and `/quotations` and `/invoices` list the sample documents.
 
 ### Resetting the live demo
 
