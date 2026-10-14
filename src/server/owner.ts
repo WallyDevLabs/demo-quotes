@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { cache } from "react";
 import { authenticate, type ActiveSession } from "./auth/service";
 import { SESSION_COOKIE } from "./auth/session";
 
@@ -14,7 +15,14 @@ export async function requireOwnerId(): Promise<string> {
   return s.userId;
 }
 
+/**
+ * One database check per request, however many places ask who is signed in (the page, a child component,
+ * a helper). Keyed on the cookie value, so a session that changes mid-request (sign in, sign out
+ * everywhere, a password change) is checked again rather than served from the earlier answer.
+ */
+export const authenticateOnce = cache((token: string | undefined): Promise<ActiveSession | null> => authenticate(token));
+
 export async function getSession(): Promise<ActiveSession | null> {
   const store = await cookies();
-  return authenticate(store.get(SESSION_COOKIE)?.value);
+  return authenticateOnce(store.get(SESSION_COOKIE)?.value);
 }

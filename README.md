@@ -84,7 +84,7 @@ Open http://localhost:3000 and create your account. Prefer Docker? `docker compo
 
 ### Deployed setup (Vercel and Supabase)
 - **Deploys:** pushing to `main` on GitHub builds on Vercel with `npm run build:vercel` (`prisma generate`, `prisma migrate deploy`, `next build`). A failed migration fails the build before any traffic reaches it.
-- **Database:** Supabase Postgres, connected through the **Session pooler** (port 5432) with `?connection_limit=1`. A password with symbols must be URL-encoded in `DATABASE_URL`; an alphanumeric one avoids the problem.
+- **Database:** Supabase Postgres, connected through the **Session pooler** (port 5432) with `?connection_limit=3` (not 1: that would queue parallel queries). A password with symbols must be URL-encoded in `DATABASE_URL`; an alphanumeric one avoids the problem.
 - **Row level security:** the migration `lock_down_data_api` switches it on for every table with no policies and revokes the Supabase Data API roles, so the anon key reads nothing. The app talks to Postgres directly and never uses Supabase's API or keys. After adding a table in a future migration, confirm in Supabase's Security Advisor that it also has row level security.
 - **Vercel project settings:** framework Next.js, Root Directory empty (the app is at the repository root), function region matching the database, and Deployment Protection off for Production (see Installing on a phone).
 - **First run:** open `/setup` with the `SETUP_TOKEN`, turn on two-factor, save the recovery codes, choose a PIN, then delete `SETUP_TOKEN` from Vercel.
